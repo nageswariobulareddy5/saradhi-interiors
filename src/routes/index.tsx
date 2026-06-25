@@ -1,53 +1,12 @@
-import {
-  createFileRoute,
-  Link,
-} from "@tanstack/react-router";
-
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import heroImg from "@/assets/hero.jpg";
-import tvUnitsImg from "@/assets/tv-units.jpg";
-import wallMuralsImg from "@/assets/wall-murals.jpg";
-import poojaImg from "@/assets/pooja.jpg";
-import aboutImg from "@/assets/about.jpg";
-import studioImg from "@/assets/studio.png";
-
-
-
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Saradhi Interiors — Elegant Living Solutions" },
-      {
-        name: "description",
-        content:
-          "Timeless interiors crafted with experience and elegance.",
-      },
-      {
-        property: "og:title",
-        content: "Saradhi Interiors",
-      },
-      {
-        property: "og:description",
-        content:
-          "Crafting timeless interiors through experience and design.",
-      },
-      {
-        property: "og:type",
-        content: "website",
-      },
-    ],
-    links: [
-      {
-        rel: "icon",
-        href: "/favicon.ico",
-      },
-    ],
-  }),
-  component: HomePage,
-});
-
+import heroImg from "../assets/hero.jpg";
+import tvUnitsImg from "../assets/tv-units.jpg";
+import wallMuralsImg from "../assets/wall-murals.jpg";
+import poojaImg from "../assets/pooja.jpg";
+import aboutImg from "../assets/about.jpg";
+import studioImg from "../assets/studio.png";
 
 const NAV_LINKS = [
   { label: "Collections", href: "#tv-units" },
@@ -298,14 +257,15 @@ function TVUnits() {
           Sculptural monoliths that anchor the living space, merging technical
           precision with raw materiality.
         </p>
-        <Link
+       <Link
   to="/collections"
   className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
 >
   Discover →
 </Link>
-      </div>
-    </section>
+
+</div>
+</section>
   );
 }
 
@@ -759,3 +719,5 @@ function Footer() {
     </footer>
   );
 }
+
+export default HomePage;
