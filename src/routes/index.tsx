@@ -15,7 +15,6 @@ import studioImg from "@/assets/studio.png";
 
 
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -23,15 +22,27 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Bespoke luxury interiors: sculptural TV units, hand-painted wall murals, and sacred pooja room designs for private residences.",
+          "Timeless interiors crafted with experience and elegance.",
       },
-      { property: "og:title", content: "Aesthetica — Elegant Living Solutions" },
+      {
+        property: "og:title",
+        content: "Saradhi Interiors",
+      },
       {
         property: "og:description",
         content:
-          "Bespoke luxury interiors crafted at the intersection of master joinery and contemporary architecture.",
+          "Crafting timeless interiors through experience and design.",
       },
-      { property: "og:type", content: "website" },
+      {
+        property: "og:type",
+        content: "website",
+      },
+    ],
+    links: [
+      {
+        rel: "icon",
+        href: "/favicon.ico",
+      },
     ],
   }),
   component: HomePage,
