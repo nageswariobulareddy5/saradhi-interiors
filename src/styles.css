@@ -2,6 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -78,7 +79,7 @@
 }
 
 @utility font-display {
-  font-family: var(--font-display);
+  font-family: "Cormorant Garamond", serif;
 }
 @utility font-mono {
   font-family: var(--font-mono);

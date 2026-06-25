@@ -167,6 +167,7 @@ function Hero() {
       aria-labelledby="hero-title"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Background Image */}
       <img
         src={heroImg}
         alt="Sculptural walnut TV unit in a moody contemporary living room"
@@ -174,28 +175,58 @@ function Hero() {
         height={1080}
         className="absolute inset-0 w-full h-full object-cover brightness-[0.45] slow-zoom"
       />
+
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/70" />
 
+      {/* Hero Content */}
       <div className="relative z-10 text-center px-6 animate-fade-up">
         <p className="font-mono text-[10px] uppercase tracking-[0.5em] mb-6 text-accent">
-    
         </p>
+
         <h1
-          id="hero-title"
-          className="font-display text-6xl md:text-8xl lg:text-9xl italic text-balance mb-10 tracking-tight leading-[0.95]"
-        >
-          Elegant Living
-          <span className="block">Solutions.</span>
-        </h1>
-        <p className="max-w-md mx-auto text-sm md:text-base text-foreground/70 mb-12 leading-relaxed">
-         Crafting timeless interiors through experience,
-creativity, and a passion for exceptional living.
+  id="hero-title"
+  className="
+    font-display
+    italic
+    font-bold
+    text-[4rem]
+    md:text-[6rem]
+    lg:text-[8rem]
+    leading-[0.95]
+    tracking-[-0.06em]
+    text-[#f5efe8]
+  "
+>
+  Elegant Living
+  <span className="block ml-10 md:ml-20 mt-2">
+    Solutions
+  </span>
+</h1>
+
+        <p className="max-w-xl mx-auto text-lg text-white/65 leading-relaxed mt-10 mb-10">
+          Crafting timeless interiors through experience,
+          creativity, and a passion for exceptional living.
         </p>
+
         <a
           href="#tv-units"
-          className="group relative inline-flex items-center gap-4 text-[11px] uppercase tracking-[0.4em] pb-3"
+          className="
+            group
+            relative
+            inline-flex
+            items-center
+            gap-4
+            text-[11px]
+            uppercase
+            tracking-[0.4em]
+            text-white
+            mt-4
+            mb-4
+          "
         >
           Explore Collections
+
           <svg
             width="14"
             height="14"
@@ -204,26 +235,44 @@ creativity, and a passion for exceptional living.
             className="transition-transform duration-500 group-hover:translate-x-1"
             aria-hidden
           >
-            <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1" />
+            <path
+              d="M1 7h12M8 2l5 5-5 5"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
           </svg>
+
           <span className="absolute bottom-0 left-0 w-full h-px bg-accent origin-right scale-x-0 group-hover:scale-x-100 group-hover:origin-left transition-transform duration-500" />
         </a>
       </div>
 
+      {/* Scroll Indicator */}
       <a
         href="#tv-units"
         aria-label="Scroll to first collection"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-foreground/60 hover:text-foreground transition-colors"
+        className="
+          absolute
+          bottom-16
+          left-1/2
+          -translate-x-1/2
+          flex
+          flex-col
+          items-center
+          gap-1
+          text-white/60
+          hover:text-white
+          transition-colors
+        "
       >
         <span className="font-mono text-[9px] uppercase tracking-[0.3em]">
           Scroll
         </span>
-        <span className="block w-px h-12 bg-foreground/40 animate-scroll-hint origin-top" />
+
+        <span className="block w-px h-12 bg-white/30 animate-scroll-hint origin-top" />
       </a>
     </section>
   );
 }
-
 function TVUnits() {
   return (
     <section
