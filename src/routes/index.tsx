@@ -7,6 +7,8 @@ import wallMuralsImg from "../assets/wall-murals.jpg";
 import poojaImg from "../assets/pooja.jpg";
 import aboutImg from "../assets/about.jpg";
 import studioImg from "../assets/studio.png";
+import Footer from "../components/Footer";
+import SiteNav from "../components/SiteNav";
 
 const NAV_LINKS = [
   { label: "Collections", href: "#tv-units" },
@@ -42,12 +44,11 @@ function HomePage() {
       <main id="main">
         <Hero />
         <TVUnits />
-        <PoojaRooms />
-        <TVUnits1 />
-        <PoojaRooms1 />
-        <TVUnits2 />
-        <PoojaRooms2 />
-        <WallMurals />
+        < Kitchens />
+        <Living />
+        <Bedrooms />
+        <Wardrobes />
+        <Pooja />
         <About />
         <Contact />
         <Footer />
@@ -58,60 +59,7 @@ function HomePage() {
   );
 }
 
-function SiteNav({
-  menuOpen,
-  setMenuOpen,
-}: {
-  menuOpen: boolean;
-  setMenuOpen: (v: boolean) => void;
-}) {
-  return (
-    <nav
-      aria-label="Primary"
-      className="fixed top-0 inset-x-0 z-50 flex justify-between items-center px-6 md:px-12 py-8 md:py-10 mix-blend-difference"
-    >
-      <a
-        href="#main"
-        className="font-display text-2xl tracking-tight italic text-foreground"
-      >
-        Saradhi Interiors
-      </a>
-      <div className="flex items-center gap-8 md:gap-12">
-        <div className="hidden md:flex gap-8 text-[10px] uppercase tracking-[0.3em] text-foreground/60">
-          {NAV_LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="hover:text-foreground transition-colors duration-500"
-            >
-              {l.label}
-            </a>
-          ))}
-        </div>
-        <button
-          type="button"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="size-6 flex flex-col justify-between items-end group"
-        >
-          <span
-            className={`h-px bg-foreground transition-all duration-300 ${
-              menuOpen ? "w-6 translate-y-[3px] rotate-45" : "w-7"
-            }`}
-          />
-          <span
-            className={`h-px bg-foreground transition-all duration-300 ${
-              menuOpen
-                ? "w-6 -translate-y-[3px] -rotate-45"
-                : "w-4 group-hover:w-7"
-            }`}
-          />
-        </button>
-      </div>
-    </nav>
-  );
-}
+
 
 function MobileMenu({ onClose }: { onClose: () => void }) {
   const items = [
@@ -268,15 +216,15 @@ function Hero() {
           Scroll
         </span>
 
-        <span className="block w-px h-12 bg-white/30 animate-scroll-hint origin-top" />
       </a>
     </section>
   );
 }
+
 function TVUnits() {
   return (
     <section
-      id="tv-units"
+  id="collections"
       aria-labelledby="tv-units-title"
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-12 items-center"
     >
@@ -307,11 +255,12 @@ function TVUnits() {
           precision with raw materiality.
         </p>
        <Link
-  to="/collections"
+  to="/collections/tv-units"
   className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
 >
   Discover →
 </Link>
+
 
 </div>
 </section>
@@ -319,7 +268,9 @@ function TVUnits() {
 }
 
 
-function PoojaRooms() {
+
+
+function Kitchens() {
   return (
     <section
       id="pooja"
@@ -328,20 +279,24 @@ function PoojaRooms() {
     >
       <div className="order-2 md:order-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 md:py-0 bg-surface">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6 block">
-          Volume III — Sanctuary
+          Volume II — Sanctuary
         </span>
         <h2
           id="pooja-title"
           className="font-display text-5xl md:text-6xl italic mb-8 tracking-tight"
         >
-          Pooja Room
-          <span className="block">Designs</span>
+          Kitchen
+          <span className="block">Collections</span>
         </h2>
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
-          Sanctuaries of silence, crafted from sacred geometry, hand-carved
-          rosewood, and quarried marble.
+         Refined culinary spaces crafted for effortless living, where elegant finishes meet intelligent functionality.
         </p>
-        <CategoryLink>Learn More</CategoryLink>
+       <Link
+  to="/collections/kitchens"
+  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+>
+  Discover →
+</Link>
       </div>
       <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
         <img
@@ -357,7 +312,7 @@ function PoojaRooms() {
   );
 }
 
-function TVUnits1() {
+function Living() {
   return (
     <section
       id="tv-units"
@@ -377,26 +332,30 @@ function TVUnits1() {
       </div>
       <div className="md:col-span-5 px-8 md:px-16 lg:px-24 py-20 md:py-0">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
-          Volume I — Joinery
+          Volume III — Joinery
         </span>
         <h2
           id="tv-units-title"
           className="font-display text-5xl md:text-6xl italic mb-8 tracking-tight"
         >
-          TV Unit
+          Living
           <span className="block">Collections</span>
         </h2>
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
-          Sculptural monoliths that anchor the living space, merging technical
-          precision with raw materiality.
+          Thoughtfully composed living spaces that balance comfort, sophistication, and timeless contemporary design.
         </p>
-        <CategoryLink>Discover</CategoryLink>
+       <Link
+  to="/collections/living"
+  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+>
+  Discover →
+</Link>
       </div>
     </section>
   );
 }
 
-function PoojaRooms1() {
+function Bedrooms() {
   return (
     <section
       id="pooja"
@@ -405,20 +364,24 @@ function PoojaRooms1() {
     >
       <div className="order-2 md:order-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 md:py-0 bg-surface">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6 block">
-          Volume III — Sanctuary
+          Volume IV — Sanctuary
         </span>
         <h2
           id="pooja-title"
           className="font-display text-5xl md:text-6xl italic mb-8 tracking-tight"
         >
-          Pooja Room
-          <span className="block">Designs</span>
+          Bed Room
+          <span className="block">Collections</span>
         </h2>
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
-          Sanctuaries of silence, crafted from sacred geometry, hand-carved
-          rosewood, and quarried marble.
+          Private sanctuaries designed with warmth and tranquility, creating an atmosphere of refined everyday luxury.
         </p>
-        <CategoryLink>Learn More</CategoryLink>
+        <Link
+  to="/collections/bedrooms"
+  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+>
+  Discover →
+</Link>
       </div>
       <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
         <img
@@ -435,7 +398,7 @@ function PoojaRooms1() {
 }
 
 
-function TVUnits2() {
+function Wardrobes() {
   return (
     <section
       id="tv-units"
@@ -455,26 +418,31 @@ function TVUnits2() {
       </div>
       <div className="md:col-span-5 px-8 md:px-16 lg:px-24 py-20 md:py-0">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
-          Volume I — Joinery
+          Volume V — Joinery
         </span>
         <h2
           id="tv-units-title"
           className="font-display text-5xl md:text-6xl italic mb-8 tracking-tight"
         >
-          TV Unit
+          Wardrobe
           <span className="block">Collections</span>
         </h2>
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
-          Sculptural monoliths that anchor the living space, merging technical
-          precision with raw materiality.
+          Tailor-made storage solutions blending meticulous craftsmanship with seamless organization and elegance.
         </p>
-        <CategoryLink>Discover</CategoryLink>
+       <Link
+  to="/collections/wardrobes"
+  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+>
+  Discover →
+</Link>
       </div>
     </section>
   );
 }
 
-function PoojaRooms2() {
+
+function Pooja() {
   return (
     <section
       id="pooja"
@@ -483,20 +451,25 @@ function PoojaRooms2() {
     >
       <div className="order-2 md:order-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-20 md:py-0 bg-surface">
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-6 block">
-          Volume III — Sanctuary
+          Volume VI — Sanctuary
         </span>
         <h2
           id="pooja-title"
           className="font-display text-5xl md:text-6xl italic mb-8 tracking-tight"
         >
           Pooja Room
-          <span className="block">Designs</span>
+          <span className="block"></span>
         </h2>
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
           Sanctuaries of silence, crafted from sacred geometry, hand-carved
           rosewood, and quarried marble.
         </p>
-        <CategoryLink>Learn More</CategoryLink>
+       <Link
+  to="/collections/pooja"
+  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+>
+  Discover →
+</Link>
       </div>
       <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
         <img
@@ -507,45 +480,6 @@ function PoojaRooms2() {
           loading="lazy"
           className="w-full h-full object-cover"
         />
-      </div>
-    </section>
-  );
-}
-
-function WallMurals() {
-  return (
-    <section
-      id="tv-units"
-      aria-labelledby="tv-units-title"
-      className="relative min-h-screen grid grid-cols-1 md:grid-cols-12 items-center"
-    >
-      <div className="md:col-span-7 h-[60vh] md:h-screen relative overflow-hidden group">
-        <img
-          src={wallMuralsImg}
-          alt="Close detail of textured dark walnut joinery with warm integrated lighting"
-          width={1200}
-          height={1080}
-          loading="lazy"
-          className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms] ease-out"
-        />
-        <div className="absolute inset-0 bg-background/10" />
-      </div>
-      <div className="md:col-span-5 px-8 md:px-16 lg:px-24 py-20 md:py-0">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
-          Volume I — Joinery
-        </span>
-        <h2
-          id="tv-units-title"
-          className="font-display text-5xl md:text-6xl italic mb-8 tracking-tight"
-        >
-          TV Unit
-          <span className="block">Collections</span>
-        </h2>
-        <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
-          Sculptural monoliths that anchor the living space, merging technical
-          precision with raw materiality.
-        </p>
-        <CategoryLink>Discover</CategoryLink>
       </div>
     </section>
   );
@@ -726,47 +660,6 @@ function CategoryLink({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="px-8 md:px-16 lg:px-24 py-16 border-t border-border">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12">
-        <div>
-          <div className="font-display text-3xl italic mb-4">Saradhi Interiors</div>
-          <p className="text-xs text-muted-foreground max-w-xs leading-relaxed">
-            Timeless interiors, crafted with experience.
-          </p>
-        </div>
-        <div className="grid grid-cols-2 gap-12 md:gap-24">
-          <div className="flex flex-col gap-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            <span className="text-foreground/80 font-bold">Social</span>
-            <a href="#" className="hover:text-accent transition-colors">
-              Instagram
-            </a>
-            <a href="#" className="hover:text-accent transition-colors">
-              Facebook
-            </a>
-            <a href="#" className="hover:text-accent transition-colors">
-              Youtube
-            </a>
-          </div>
-          <div className="flex flex-col gap-3 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-            <span className="text-foreground/80 font-bold">Legal</span>
-            <a href="#" className="hover:text-accent transition-colors">
-              Privacy
-            </a>
-            <a href="#" className="hover:text-accent transition-colors">
-              Terms
-            </a>
-           
-          </div>
-        </div>
-      </div>
-      <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row md:justify-between gap-4 font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground/60">
-        <span>© 2024 Saradhi Interiors. All rights reserved.</span>
-        <span>Ameenpur · Hyderabad · India</span>
-      </div>
-    </footer>
-  );
-}
+
 
 export default HomePage;
