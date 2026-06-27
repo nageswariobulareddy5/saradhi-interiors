@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { useLocation } from "react-router-dom";
+import MobileMenu from "../components/MobileMenu";
 import heroImg from "../assets/hero.jpg";
 import tvUnitsImg from "../assets/tv-units.jpg";
 import wallMuralsImg from "../assets/wall-murals.jpg";
@@ -10,16 +11,17 @@ import studioImg from "../assets/studio.png";
 import Footer from "../components/Footer";
 import SiteNav from "../components/SiteNav";
 
-const NAV_LINKS = [
-  { label: "Collections", href: "#tv-units" },
-  { label: "Bespoke", href: "#about" },
-  { label: "Consult", href: "#contact" },
-];
+
 
 
 
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+const location = useLocation();
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [location.key]);
 
   useEffect(() => {
     if (menuOpen) document.body.style.overflow = "hidden";
@@ -61,41 +63,6 @@ function HomePage() {
 
 
 
-function MobileMenu({ onClose }: { onClose: () => void }) {
-  const items = [
-    { label: "Home", href: "#main" },
-    { label: "TV Units", href: "#tv-units" },
-    { label: "Wall Murals", href: "#wall-murals" },
-    { label: "Pooja Rooms", href: "#pooja" },
-    { label: "Our Story", href: "#about" },
-    { label: "Featured", href: "#featured" },
-    { label: "Consult", href: "#contact" },
-  ];
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center animate-fade-in"
-    >
-      <ul className="flex flex-col items-center gap-6 md:gap-8">
-        {items.map((i) => (
-          <li key={i.href}>
-            <a
-              href={i.href}
-              onClick={onClose}
-              className="font-display italic text-4xl md:text-6xl tracking-tight hover:text-accent transition-colors duration-500"
-            >
-              {i.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div className="absolute bottom-12 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-        Ameenpur / Hyderabad / India
-      </div>
-    </div>
-  );
-}
 
 function SectionIndex() {
   return (
@@ -152,10 +119,22 @@ function Hero() {
   </span>
 </h1>
 
-        <p className="max-w-xl mx-auto text-lg text-white/65 leading-relaxed mt-10 mb-10">
-          Crafting timeless interiors through experience,
-          creativity, and a passion for exceptional living.
-        </p>
+        <p
+  className="
+    mt-10
+    text-[16px]
+    md:text-[1.2rem]
+    leading-[1.85]
+    text-white/60
+    max-w-4xl
+    mx-auto
+    text-center
+  "
+>
+  Crafting timeless interiors through experience, creativity,
+  <br className="hidden md:block" />
+  and a passion for exceptional living.
+</p>
 
         <a
           href="#tv-units"
@@ -164,12 +143,12 @@ function Hero() {
             relative
             inline-flex
             items-center
-            gap-4
+            gap-6
             text-[11px]
             uppercase
             tracking-[0.4em]
             text-white
-            mt-4
+            mt-7
             mb-4
           "
         >
@@ -224,19 +203,29 @@ function Hero() {
 function TVUnits() {
   return (
     <section
-  id="collections"
+  id="tv-units"
       aria-labelledby="tv-units-title"
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-12 items-center"
     >
       <div className="md:col-span-7 h-[60vh] md:h-screen relative overflow-hidden group">
         <img
-          src={tvUnitsImg}
-          alt="Close detail of textured dark walnut joinery with warm integrated lighting"
-          width={1200}
-          height={1080}
-          loading="lazy"
-          className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms] ease-out"
-        />
+  src={tvUnitsImg}
+  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+  width={1200}
+  height={1080}
+  loading="lazy"
+  className="
+    w-full
+    h-full
+    object-cover
+    scale-105
+    animate-floatingImage
+    transition-transform
+    duration-[2000ms]
+    ease-out
+    group-hover:scale-110
+  "
+/>
         <div className="absolute inset-0 bg-background/10" />
       </div>
       <div className="md:col-span-5 px-8 md:px-16 lg:px-24 py-20 md:py-0">
@@ -254,14 +243,63 @@ function TVUnits() {
           Sculptural monoliths that anchor the living space, merging technical
           precision with raw materiality.
         </p>
-       <Link
+    <Link
   to="/collections/tv-units"
-  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+  onClick={(e) => {
+    e.currentTarget.blur();
+    window.scrollTo(0, 0);
+  }}
+  className="
+    group
+    relative
+    inline-flex
+    items-center
+    gap-4
+    mt-16
+    text-[11px]
+    uppercase
+    tracking-[0.4em]
+    text-white
+    transition-colors
+    duration-500
+    hover:text-[#b6925b]
+    focus:outline-none
+    active:outline-none
+  "
 >
-  Discover →
+  Discover
+
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    className="transition-transform duration-500 group-hover:translate-x-1"
+  >
+    <path
+      d="M1 7h12M8 2l5 5-5 5"
+      stroke="currentColor"
+      strokeWidth="1"
+    />
+  </svg>
+
+  <span
+    className="
+      absolute
+      -bottom-2
+      left-0
+      h-px
+      w-full
+      bg-[#b6925b]
+      origin-right
+      scale-x-0
+      transition-transform
+      duration-500
+      group-hover:origin-left
+      group-hover:scale-x-100
+    "
+  />
 </Link>
-
-
 </div>
 </section>
   );
@@ -273,7 +311,7 @@ function TVUnits() {
 function Kitchens() {
   return (
     <section
-      id="pooja"
+      id="kitchens"
       aria-labelledby="pooja-title"
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden"
     >
@@ -291,22 +329,83 @@ function Kitchens() {
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
          Refined culinary spaces crafted for effortless living, where elegant finishes meet intelligent functionality.
         </p>
-       <Link
+   <Link
   to="/collections/kitchens"
-  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+  onClick={(e) => {
+    e.currentTarget.blur();
+    window.scrollTo(0, 0);
+  }}
+  className="
+    group
+    relative
+    inline-flex
+    items-center
+    gap-4
+    mt-16
+    text-[11px]
+    uppercase
+    tracking-[0.4em]
+    text-white
+    transition-colors
+    duration-500
+    hover:text-[#b6925b]
+    focus:outline-none
+    active:outline-none
+  "
 >
-  Discover →
+  Discover
+
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    className="transition-transform duration-500 group-hover:translate-x-1"
+  >
+    <path
+      d="M1 7h12M8 2l5 5-5 5"
+      stroke="currentColor"
+      strokeWidth="1"
+    />
+  </svg>
+
+  <span
+    className="
+      absolute
+      -bottom-2
+      left-0
+      h-px
+      w-[130px]
+      bg-[#b6925b]
+      origin-right
+      scale-x-0
+      transition-transform
+      duration-500
+      group-hover:origin-left
+      group-hover:scale-x-100
+    "
+  />
 </Link>
       </div>
       <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
         <img
-          src={poojaImg}
-          alt="Atmospheric pooja room with candlelight reflected on marble and carved wood"
-          width={1080}
-          height={1920}
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
+  src={poojaImg}
+  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+  width={1200}
+  height={1080}
+  loading="lazy"
+  className="
+    w-full
+    h-full
+    object-cover
+    scale-105
+    animate-floatingImage
+    transition-transform
+    duration-[2000ms]
+    ease-out
+    group-hover:scale-110
+  "
+/>
       </div>
     </section>
   );
@@ -315,19 +414,29 @@ function Kitchens() {
 function Living() {
   return (
     <section
-      id="tv-units"
+      id="living"
       aria-labelledby="tv-units-title"
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-12 items-center"
     >
       <div className="md:col-span-7 h-[60vh] md:h-screen relative overflow-hidden group">
         <img
-          src={tvUnitsImg}
-          alt="Close detail of textured dark walnut joinery with warm integrated lighting"
-          width={1200}
-          height={1080}
-          loading="lazy"
-          className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms] ease-out"
-        />
+  src={tvUnitsImg}
+  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+  width={1200}
+  height={1080}
+  loading="lazy"
+  className="
+    w-full
+    h-full
+    object-cover
+    scale-105
+    animate-floatingImage
+    transition-transform
+    duration-[2000ms]
+    ease-out
+    group-hover:scale-110
+  "
+/>
         <div className="absolute inset-0 bg-background/10" />
       </div>
       <div className="md:col-span-5 px-8 md:px-16 lg:px-24 py-20 md:py-0">
@@ -344,11 +453,62 @@ function Living() {
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
           Thoughtfully composed living spaces that balance comfort, sophistication, and timeless contemporary design.
         </p>
-       <Link
+      <Link
   to="/collections/living"
-  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+  onClick={(e) => {
+    e.currentTarget.blur();
+    window.scrollTo(0, 0);
+  }}
+  className="
+    group
+    relative
+    inline-flex
+    items-center
+    gap-4
+    mt-16
+    text-[11px]
+    uppercase
+    tracking-[0.4em]
+    text-white
+    transition-colors
+    duration-500
+    hover:text-[#b6925b]
+    focus:outline-none
+    active:outline-none
+  "
 >
-  Discover →
+  Discover
+
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    className="transition-transform duration-500 group-hover:translate-x-1"
+  >
+    <path
+      d="M1 7h12M8 2l5 5-5 5"
+      stroke="currentColor"
+      strokeWidth="1"
+    />
+  </svg>
+
+  <span
+    className="
+      absolute
+      -bottom-2
+      left-0
+      h-px
+      w-full
+      bg-[#b6925b]
+      origin-right
+      scale-x-0
+      transition-transform
+      duration-500
+      group-hover:origin-left
+      group-hover:scale-x-100
+    "
+  />
 </Link>
       </div>
     </section>
@@ -358,7 +518,7 @@ function Living() {
 function Bedrooms() {
   return (
     <section
-      id="pooja"
+      id="bedrooms"
       aria-labelledby="pooja-title"
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden"
     >
@@ -376,22 +536,83 @@ function Bedrooms() {
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
           Private sanctuaries designed with warmth and tranquility, creating an atmosphere of refined everyday luxury.
         </p>
-        <Link
+<Link
   to="/collections/bedrooms"
-  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+  onClick={(e) => {
+    e.currentTarget.blur();
+    window.scrollTo(0, 0);
+  }}
+  className="
+    group
+    relative
+    inline-flex
+    items-center
+    gap-4
+    mt-16
+    text-[11px]
+    uppercase
+    tracking-[0.4em]
+    text-white
+    transition-colors
+    duration-500
+    hover:text-[#b6925b]
+    focus:outline-none
+    active:outline-none
+  "
 >
-  Discover →
+  Discover
+
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    className="transition-transform duration-500 group-hover:translate-x-1"
+  >
+    <path
+      d="M1 7h12M8 2l5 5-5 5"
+      stroke="currentColor"
+      strokeWidth="1"
+    />
+  </svg>
+
+  <span
+    className="
+      absolute
+      -bottom-2
+      left-0
+      h-px
+      w-[130px]
+      bg-[#b6925b]
+      origin-right
+      scale-x-0
+      transition-transform
+      duration-500
+      group-hover:origin-left
+      group-hover:scale-x-100
+    "
+  />
 </Link>
       </div>
       <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
         <img
-          src={poojaImg}
-          alt="Atmospheric pooja room with candlelight reflected on marble and carved wood"
-          width={1080}
-          height={1920}
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
+  src={poojaImg}
+  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+  width={1200}
+  height={1080}
+  loading="lazy"
+  className="
+    w-full
+    h-full
+    object-cover
+    scale-105
+    animate-floatingImage
+    transition-transform
+    duration-[2000ms]
+    ease-out
+    group-hover:scale-110
+  "
+/>
       </div>
     </section>
   );
@@ -401,19 +622,29 @@ function Bedrooms() {
 function Wardrobes() {
   return (
     <section
-      id="tv-units"
+      id="wardrobes"
       aria-labelledby="tv-units-title"
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-12 items-center"
     >
       <div className="md:col-span-7 h-[60vh] md:h-screen relative overflow-hidden group">
         <img
-          src={tvUnitsImg}
-          alt="Close detail of textured dark walnut joinery with warm integrated lighting"
-          width={1200}
-          height={1080}
-          loading="lazy"
-          className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2000ms] ease-out"
-        />
+  src={tvUnitsImg}
+  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+  width={1200}
+  height={1080}
+  loading="lazy"
+  className="
+    w-full
+    h-full
+    object-cover
+    scale-105
+    animate-floatingImage
+    transition-transform
+    duration-[2000ms]
+    ease-out
+    group-hover:scale-110
+  "
+/>
         <div className="absolute inset-0 bg-background/10" />
       </div>
       <div className="md:col-span-5 px-8 md:px-16 lg:px-24 py-20 md:py-0">
@@ -430,11 +661,62 @@ function Wardrobes() {
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
           Tailor-made storage solutions blending meticulous craftsmanship with seamless organization and elegance.
         </p>
-       <Link
+      <Link
   to="/collections/wardrobes"
-  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+  onClick={(e) => {
+    e.currentTarget.blur();
+    window.scrollTo(0, 0);
+  }}
+  className="
+    group
+    relative
+    inline-flex
+    items-center
+    gap-4
+    mt-16
+    text-[11px]
+    uppercase
+    tracking-[0.4em]
+    text-white
+    transition-colors
+    duration-500
+    hover:text-[#b6925b]
+    focus:outline-none
+    active:outline-none
+  "
 >
-  Discover →
+  Discover
+
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    className="transition-transform duration-500 group-hover:translate-x-1"
+  >
+    <path
+      d="M1 7h12M8 2l5 5-5 5"
+      stroke="currentColor"
+      strokeWidth="1"
+    />
+  </svg>
+
+  <span
+    className="
+      absolute
+      -bottom-2
+      left-0
+      h-px
+      w-full
+      bg-[#b6925b]
+      origin-right
+      scale-x-0
+      transition-transform
+      duration-500
+      group-hover:origin-left
+      group-hover:scale-x-100
+    "
+  />
 </Link>
       </div>
     </section>
@@ -464,22 +746,83 @@ function Pooja() {
           Sanctuaries of silence, crafted from sacred geometry, hand-carved
           rosewood, and quarried marble.
         </p>
-       <Link
+      <Link
   to="/collections/pooja"
-  className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.3em]"
+  onClick={(e) => {
+    e.currentTarget.blur();
+    window.scrollTo(0, 0);
+  }}
+  className="
+    group
+    relative
+    inline-flex
+    items-center
+    gap-4
+    mt-16
+    text-[11px]
+    uppercase
+    tracking-[0.4em]
+    text-white
+    transition-colors
+    duration-500
+    hover:text-[#b6925b]
+    focus:outline-none
+    active:outline-none
+  "
 >
-  Discover →
+  Discover
+
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    className="transition-transform duration-500 group-hover:translate-x-1"
+  >
+    <path
+      d="M1 7h12M8 2l5 5-5 5"
+      stroke="currentColor"
+      strokeWidth="1"
+    />
+  </svg>
+
+  <span
+    className="
+      absolute
+      -bottom-2
+      left-0
+      h-px
+      w-[130px]
+      bg-[#b6925b]
+      origin-right
+      scale-x-0
+      transition-transform
+      duration-500
+      group-hover:origin-left
+      group-hover:scale-x-100
+    "
+  />
 </Link>
       </div>
       <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
         <img
-          src={poojaImg}
-          alt="Atmospheric pooja room with candlelight reflected on marble and carved wood"
-          width={1080}
-          height={1920}
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
+  src={poojaImg}
+  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+  width={1200}
+  height={1080}
+  loading="lazy"
+  className="
+    w-full
+    h-full
+    object-cover
+    scale-105
+    animate-floatingImage
+    transition-transform
+    duration-[2000ms]
+    ease-out
+    group-hover:scale-110
+  "
+/>
       </div>
     </section>
   );

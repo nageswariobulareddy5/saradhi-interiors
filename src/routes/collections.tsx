@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import SiteNav from "../components/SiteNav";
-import { useParams } from "react-router-dom";
 
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { tvUnits } from "../data/tvUnits";
 import { kitchens } from "../data/kitchens";
 import { living } from "../data/living";
@@ -10,7 +10,11 @@ import { bedrooms } from "../data/bedrooms";
 import { wardrobes } from "../data/wardrobes";
 import { pooja } from "../data/pooja";
 
-import { Link } from "react-router-dom";
+import MobileMenu from "../components/MobileMenu";
+
+
+
+
 type GalleryItem = {
   type: "image" | "video";
   src: string;
@@ -41,6 +45,7 @@ function getHeight(height: GalleryItem["height"]) {
 }
 
 function CollectionsPage() {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const { category } = useParams();
 
@@ -105,9 +110,7 @@ switch (category) {
 }
 
 
-  useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
+ 
 
   return (
     <main className="min-h-screen bg-[#0f0f0f] text-white overflow-x-hidden">
@@ -116,6 +119,12 @@ switch (category) {
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
       />
+
+      {menuOpen && (
+  <MobileMenu
+    onClose={() => setMenuOpen(false)}
+  />
+)}
 
      {/* Hero */}
 <section className="relative pt-24 md:pt-28 lg:pt-32 pb-20">
