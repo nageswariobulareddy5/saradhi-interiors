@@ -49,6 +49,19 @@ function CollectionsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { category } = useParams();
 
+  useEffect(() => {
+  // Always open a collection page from the very top
+  window.history.scrollRestoration = "manual";
+
+  requestAnimationFrame(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  });
+}, [category]);
+
 let gallery: GalleryItem[] = [];
 
 switch (category) {
@@ -226,11 +239,9 @@ switch (category) {
                 ease-[cubic-bezier(.22,1,.36,1)]
                 hover:-translate-y-2
                 hover:shadow-2xl
-                animate-fade-up
+                
               "
-              style={{
-                animationDelay: `${(index % 10) * 80}ms`,
-              }}
+              
             >
               <div
                 className={`

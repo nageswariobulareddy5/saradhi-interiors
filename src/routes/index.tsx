@@ -247,7 +247,6 @@ function TVUnits() {
   to="/collections/tv-units"
   onClick={(e) => {
     e.currentTarget.blur();
-    window.scrollTo(0, 0);
   }}
   className="
     group
@@ -333,7 +332,6 @@ function Kitchens() {
   to="/collections/kitchens"
   onClick={(e) => {
     e.currentTarget.blur();
-    window.scrollTo(0, 0);
   }}
   className="
     group
@@ -453,11 +451,10 @@ function Living() {
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
           Thoughtfully composed living spaces that balance comfort, sophistication, and timeless contemporary design.
         </p>
-      <Link
+     <Link
   to="/collections/living"
   onClick={(e) => {
     e.currentTarget.blur();
-    window.scrollTo(0, 0);
   }}
   className="
     group
@@ -536,11 +533,10 @@ function Bedrooms() {
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
           Private sanctuaries designed with warmth and tranquility, creating an atmosphere of refined everyday luxury.
         </p>
-<Link
+ <Link
   to="/collections/bedrooms"
   onClick={(e) => {
     e.currentTarget.blur();
-    window.scrollTo(0, 0);
   }}
   className="
     group
@@ -661,11 +657,10 @@ function Wardrobes() {
         <p className="text-foreground/70 text-base max-w-sm leading-relaxed mb-12">
           Tailor-made storage solutions blending meticulous craftsmanship with seamless organization and elegance.
         </p>
-      <Link
+     <Link
   to="/collections/wardrobes"
   onClick={(e) => {
     e.currentTarget.blur();
-    window.scrollTo(0, 0);
   }}
   className="
     group
@@ -746,11 +741,10 @@ function Pooja() {
           Sanctuaries of silence, crafted from sacred geometry, hand-carved
           rosewood, and quarried marble.
         </p>
-      <Link
+     <Link
   to="/collections/pooja"
   onClick={(e) => {
     e.currentTarget.blur();
-    window.scrollTo(0, 0);
   }}
   className="
     group
