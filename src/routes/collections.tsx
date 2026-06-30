@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import Footer from "../components/Footer";
 import SiteNav from "../components/SiteNav";
 
@@ -25,22 +25,22 @@ type GalleryItem = {
 function getHeight(height: GalleryItem["height"]) {
   switch (height) {
     case "small":
-      return "h-[320px]";
+      return "h-[180px] sm:h-[240px] md:h-[320px]";
 
     case "medium":
-      return "h-[450px]";
+      return "h-[240px] sm:h-[320px] md:h-[450px]";
 
     case "tall":
-      return "h-[560px]";
+      return "h-[320px] sm:h-[420px] md:h-[560px]";
 
     case "large":
-      return "h-[680px]";
+      return "h-[420px] sm:h-[520px] md:h-[680px]";
 
     case "xlarge":
-      return "h-[820px]";
+      return "h-[520px] sm:h-[650px] md:h-[820px]";
 
     default:
-      return "h-[450px]";
+      return "h-[240px] sm:h-[320px] md:h-[450px]";
   }
 }
 
@@ -49,19 +49,7 @@ function CollectionsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { category } = useParams();
 
-  useEffect(() => {
-  // Always open a collection page from the very top
-  window.history.scrollRestoration = "manual";
-
-  requestAnimationFrame(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "auto",
-    });
-  });
-}, [category]);
-
+ 
 let gallery: GalleryItem[] = [];
 
 switch (category) {
@@ -126,7 +114,10 @@ switch (category) {
  
 
   return (
-    <main className="min-h-screen bg-[#0f0f0f] text-white overflow-x-hidden">
+    <main
+  key={category}
+  className="min-h-screen bg-[#0f0f0f] text-white overflow-x-hidden"
+>
       {/* Navbar */}
      <SiteNav
   menuOpen={menuOpen}
@@ -141,16 +132,39 @@ switch (category) {
 )}
 
      {/* Hero */}
-<section className="relative pt-24 md:pt-28 lg:pt-32 pb-20">
+<section
+  className="
+    relative
+    pt-20
+    sm:pt-24
+    md:pt-28
+    lg:pt-32
+    pb-12
+    sm:pb-16
+    md:pb-20
+  "
+>
   <div className="absolute inset-0 bg-gradient-to-b from-black via-[#111111] to-[#0f0f0f]" />
 
-  <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-14 lg:px-20">
+  <div
+  className="
+    relative
+    z-10
+    mx-auto
+    max-w-7xl
+    px-5
+    sm:px-6
+    md:px-14
+    lg:px-20
+  "
+>
     <p
       className="
         font-mono
         uppercase
         tracking-[0.55em]
-        text-[10px]
+        text-[9px]
+sm:text-[10px]
         text-[#b6925b]
       "
     >
@@ -163,9 +177,10 @@ switch (category) {
     font-display
     italic
     font-semibold
-    text-[4rem]
-    md:text-[6rem]
-    lg:text-[8rem]
+   text-[2.7rem]
+sm:text-[3.7rem]
+md:text-[6rem]
+lg:text-[8rem]
     leading-[0.9]
     tracking-[-0.05em]
     max-w-5xl
@@ -183,7 +198,8 @@ switch (category) {
           font-mono
           uppercase
           tracking-[0.35em]
-          text-[15px]
+         text-[12px]
+sm:text-[15px]
           text-white/70
           hover:text-[#b6925b]
           transition-colors
@@ -209,29 +225,38 @@ switch (category) {
   </div>
 </section>
       {/* Gallery */}
-      <section className="pb-52">
-        <div
-          className="
-            mx-auto
-            max-w-[1800px]
-            columns-1
-            sm:columns-2
-            lg:columns-3
-            xl:columns-4
-            gap-4
-            px-5
-            md:px-8
-            lg:px-10
-          "
-        >
+      <section
+  className="pb-52 min-h-screen"
+  style={{
+    contentVisibility: "auto",
+    containIntrinsicSize: "3000px",
+  }}
+>
+      <div
+  className="
+    mx-auto
+    max-w-[1800px]
+    grid
+    grid-cols-2
+    md:grid-cols-3
+    xl:grid-cols-4
+    gap-3
+    px-3
+    md:px-8
+    lg:px-10
+  "
+>
           {gallery.map((item, index) => (
             <div
               key={`${item.src}-${index}`}
-              className="
-                mb-4
-                break-inside-avoid
-                overflow-hidden
-                rounded-2xl
+             className="
+  mb-2
+  sm:mb-3
+  md:mb-4
+  
+  overflow-hidden
+  rounded-xl
+  sm:rounded-2xl
                 group
                 cursor-pointer
                 shadow-lg
@@ -263,7 +288,8 @@ switch (category) {
                       transition-transform
                       duration-[1800ms]
                       ease-[cubic-bezier(.22,1,.36,1)]
-                      group-hover:scale-[1.04]
+                      group-hover:scale-[1.03]
+md:group-hover:scale-[1.04]
                     "
                   />
                 ) : (
@@ -280,7 +306,8 @@ switch (category) {
                       transition-transform
                       duration-[1800ms]
                       ease-[cubic-bezier(.22,1,.36,1)]
-                      group-hover:scale-[1.04]
+                      group-hover:scale-[1.03]
+md:group-hover:scale-[1.04]
                     "
                   >
                     <source src={item.src} type="video/mp4" />

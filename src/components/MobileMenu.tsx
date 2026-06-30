@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 type Props = {
   onClose: () => void;
 };
 
 export default function MobileMenu({ onClose }: Props) {
+  const navigate = useNavigate();
+
   const items = [
     { label: "TV Units", href: "/#tv-units" },
     { label: "Kitchen", href: "/#kitchens" },
@@ -12,6 +16,26 @@ export default function MobileMenu({ onClose }: Props) {
     { label: "Pooja", href: "/#pooja" },
   ];
 
+  const goToSection = (id: string) => {
+    onClose();
+
+    if (window.location.pathname !== "/") {
+      navigate("/");
+
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 200);
+    } else {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <div
       className="
@@ -20,25 +44,92 @@ export default function MobileMenu({ onClose }: Props) {
         z-40
         bg-[#0f0f0f]/95
         backdrop-blur-2xl
-        flex
-        items-center
-        justify-center
-        px-6
-        py-10
+        overflow-y-auto
+        px-5
+        py-20
         animate-fade-in
       "
     >
-      <div className="w-full max-w-6xl">
+      <div className="mx-auto w-full max-w-7xl">
+
+        {/* ---------------- Mobile Navigation ---------------- */}
+        <div
+          className="
+            flex
+            md:hidden
+            justify-center
+            items-center
+            flex-wrap
+            gap-x-4
+            gap-y-3
+            mt-6
+            mb-8
+            text-[10px]
+            uppercase
+            tracking-[0.3em]
+            text-white/70
+          "
+        >
+          <button
+            onClick={() => goToSection("home")}
+            className="
+              transition-colors
+              duration-500
+              hover:text-[#b6925b]
+            "
+          >
+            HOME
+          </button>
+
+          <button
+            onClick={() => goToSection("tv-units")}
+            className="
+              transition-colors
+              duration-500
+              hover:text-[#b6925b]
+            "
+          >
+            COLLECTIONS
+          </button>
+
+          <button
+            onClick={() => goToSection("about")}
+            className="
+              transition-colors
+              duration-500
+              hover:text-[#b6925b]
+            "
+          >
+            ABOUT
+          </button>
+
+          <button
+            onClick={() => goToSection("contact")}
+            className="
+              transition-colors
+              duration-500
+              hover:text-[#b6925b]
+            "
+          >
+            CONSULT
+          </button>
+        </div>
+
+        {/* Divider - Mobile Only */}
+        <div className="md:hidden w-full h-px bg-[#b6925b]/25 mb-8" />
 
         {/* Heading */}
         <p
           className="
+            mt-10
+            md:mt-24
+            mb-10
             text-center
             uppercase
             tracking-[0.55em]
-            text-[11px]
+            text-[10px]
+            md:text-[11px]
             text-[#b6925b]
-            mb-10
           "
         >
           Collections
@@ -49,31 +140,40 @@ export default function MobileMenu({ onClose }: Props) {
           className="
             grid
             grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-3
-            gap-6
+            md:grid-cols-2
+            xl:grid-cols-3
+            gap-4
+            md:gap-6
           "
         >
           {items.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              onClick={() => {
-                onClose();
-              }}
+              onClick={onClose}
               className="
                 group
                 relative
                 overflow-hidden
-                rounded-2xl
+                rounded-xl
+                sm:rounded-2xl
                 border
                 border-[#2d2418]
                 bg-white/[0.03]
                 backdrop-blur-xl
-                px-8
-                py-7
+
+                px-5
+                py-4
+
+                sm:px-6
+                sm:py-5
+
+                md:px-8
+                md:py-7
+
                 transition-all
                 duration-700
+
                 hover:border-[#b6925b]
                 hover:bg-[#181410]
                 hover:-translate-y-2
@@ -81,10 +181,12 @@ export default function MobileMenu({ onClose }: Props) {
               "
             >
               <div className="flex items-center justify-between">
+
                 <span
                   className="
                     font-display
-                    text-2xl
+                    text-[1.45rem]
+                    sm:text-[1.7rem]
                     md:text-3xl
                     text-white
                     transition-colors
@@ -96,8 +198,8 @@ export default function MobileMenu({ onClose }: Props) {
                 </span>
 
                 <svg
-                  width="22"
-                  height="22"
+                  width="18"
+                  height="18"
                   viewBox="0 0 24 24"
                   fill="none"
                   className="
@@ -105,7 +207,7 @@ export default function MobileMenu({ onClose }: Props) {
                     transition-all
                     duration-500
                     group-hover:text-[#b6925b]
-                    group-hover:translate-x-2
+                    group-hover:translate-x-1
                   "
                 >
                   <path
@@ -118,7 +220,7 @@ export default function MobileMenu({ onClose }: Props) {
                 </svg>
               </div>
 
-              {/* Gold underline */}
+              {/* Gold Underline */}
               <span
                 className="
                   absolute
