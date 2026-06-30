@@ -920,8 +920,7 @@ leading-7 mb-12">
         </p>
      <Link
   to="/collections/wardrobes"
-  replace
-  reloadDocument
+
   className="
     group
     inline-flex
