@@ -314,13 +314,12 @@ leading-7 mb-12">
           Sculptural monoliths that anchor the living space, merging technical
           precision with raw materiality.
         </p>
-   <Link
+  <Link
   to="/collections/tv-units"
   replace
   reloadDocument
-    className="
+  className="
     group
-    relative
     inline-flex
     items-center
     gap-3
@@ -345,8 +344,33 @@ leading-7 mb-12">
     active:outline-none
   "
 >
-  Discover
+  {/* Discover Text */}
+  <span className="relative inline-block">
+    Discover
 
+    <span
+      className="
+        absolute
+        left-0
+        -bottom-2
+        h-px
+        w-full
+        bg-[#b6925b]
+
+        transition-transform
+        duration-500
+
+        scale-x-100
+
+        md:origin-right
+        md:scale-x-0
+        md:group-hover:origin-left
+        md:group-hover:scale-x-100
+      "
+    />
+  </span>
+
+  {/* Arrow */}
   <svg
     width="14"
     height="14"
@@ -367,26 +391,6 @@ leading-7 mb-12">
       strokeWidth="1"
     />
   </svg>
-
-  <span
-    className="
-      absolute
-      -bottom-2
-      left-0
-      h-px
-      bg-[#b6925b]
-      transition-transform
-      duration-500
-
-      w-full
-      scale-x-100
-
-      md:origin-right
-      md:scale-x-0
-      md:group-hover:origin-left
-      md:group-hover:scale-x-100
-    "
-  />
 </Link>
 </div>
 </section>
@@ -439,14 +443,12 @@ md:max-w-sm
 leading-7 mb-12">
          Refined culinary spaces crafted for effortless living, where elegant finishes meet intelligent functionality.
         </p>
-  <Link
-  to="/collections/kitchens"
-  onClick={(e) => {
-    e.currentTarget.blur();
-  }}
+<Link
+  to="/collections/kitchens"   // Change this for each section
+  replace
+  reloadDocument
   className="
     group
-    relative
     inline-flex
     items-center
     gap-3
@@ -471,7 +473,32 @@ leading-7 mb-12">
     active:outline-none
   "
 >
-  Discover
+  <span className="relative inline-block">
+    Discover
+
+    <span
+      className="
+        absolute
+        left-0
+        -bottom-2
+
+        h-px
+        w-[90px]
+        bg-[#b6925b]
+
+        transition-transform
+        duration-500
+
+        scale-x-100
+
+        md:w-full
+        md:origin-right
+        md:scale-x-0
+        md:group-hover:origin-left
+        md:group-hover:scale-x-100
+      "
+    />
+  </span>
 
   <svg
     width="14"
@@ -493,26 +520,6 @@ leading-7 mb-12">
       strokeWidth="1"
     />
   </svg>
-
-  <span
-    className="
-      absolute
-      -bottom-2
-      left-0
-      h-px
-      bg-[#b6925b]
-      transition-transform
-      duration-500
-
-      w-[130px]
-      scale-x-100
-
-      md:origin-right
-      md:scale-x-0
-      md:group-hover:origin-left
-      md:group-hover:scale-x-100
-    "
-  />
 </Link>
       </div>
       <div className="order-1 md:order-2 h-[45vh]
@@ -610,13 +617,12 @@ md:max-w-sm
 leading-7 mb-12">
           Thoughtfully composed living spaces that balance comfort, sophistication, and timeless contemporary design.
         </p>
-     <Link
-   to="/collections/living"
+    <Link
+  to="/collections/living"
   replace
   reloadDocument
-   className="
+  className="
     group
-    relative
     inline-flex
     items-center
     gap-3
@@ -641,8 +647,33 @@ leading-7 mb-12">
     active:outline-none
   "
 >
-  Discover
+  {/* Discover Text */}
+  <span className="relative inline-block">
+    Discover
 
+    <span
+      className="
+        absolute
+        left-0
+        -bottom-2
+        h-px
+        w-full
+        bg-[#b6925b]
+
+        transition-transform
+        duration-500
+
+        scale-x-100
+
+        md:origin-right
+        md:scale-x-0
+        md:group-hover:origin-left
+        md:group-hover:scale-x-100
+      "
+    />
+  </span>
+
+  {/* Arrow */}
   <svg
     width="14"
     height="14"
@@ -663,26 +694,6 @@ leading-7 mb-12">
       strokeWidth="1"
     />
   </svg>
-
-  <span
-    className="
-      absolute
-      -bottom-2
-      left-0
-      h-px
-      bg-[#b6925b]
-      transition-transform
-      duration-500
-
-      w-full
-      scale-x-100
-
-      md:origin-right
-      md:scale-x-0
-      md:group-hover:origin-left
-      md:group-hover:scale-x-100
-    "
-  />
 </Link>
       </div>
     </section>
@@ -733,13 +744,11 @@ leading-7 mb-12">
           Private sanctuaries designed with warmth and tranquility, creating an atmosphere of refined everyday luxury.
         </p>
   <Link
-  to="/collections/bedrooms"
-  onClick={(e) => {
-    e.currentTarget.blur();
-  }}
+  to="/collections/bedrooms"   // Change this for each section
+  replace
+  reloadDocument
   className="
     group
-    relative
     inline-flex
     items-center
     gap-3
@@ -764,7 +773,32 @@ leading-7 mb-12">
     active:outline-none
   "
 >
-  Discover
+  <span className="relative inline-block">
+    Discover
+
+    <span
+      className="
+        absolute
+        left-0
+        -bottom-2
+
+        h-px
+        w-[90px]
+        bg-[#b6925b]
+
+        transition-transform
+        duration-500
+
+        scale-x-100
+
+        md:w-full
+        md:origin-right
+        md:scale-x-0
+        md:group-hover:origin-left
+        md:group-hover:scale-x-100
+      "
+    />
+  </span>
 
   <svg
     width="14"
@@ -786,26 +820,6 @@ leading-7 mb-12">
       strokeWidth="1"
     />
   </svg>
-
-  <span
-    className="
-      absolute
-      -bottom-2
-      left-0
-      h-px
-      bg-[#b6925b]
-      transition-transform
-      duration-500
-
-      w-[130px]
-      scale-x-100
-
-      md:origin-right
-      md:scale-x-0
-      md:group-hover:origin-left
-      md:group-hover:scale-x-100
-    "
-  />
 </Link>
       </div>
       <div className="order-1 md:order-2 h-[45vh]
@@ -905,12 +919,11 @@ leading-7 mb-12">
           Tailor-made storage solutions blending meticulous craftsmanship with seamless organization and elegance.
         </p>
      <Link
-   to="/collections/wardrobes"
+  to="/collections/wardrobes"
   replace
   reloadDocument
-    className="
+  className="
     group
-    relative
     inline-flex
     items-center
     gap-3
@@ -935,8 +948,33 @@ leading-7 mb-12">
     active:outline-none
   "
 >
-  Discover
+  {/* Discover Text */}
+  <span className="relative inline-block">
+    Discover
 
+    <span
+      className="
+        absolute
+        left-0
+        -bottom-2
+        h-px
+        w-full
+        bg-[#b6925b]
+
+        transition-transform
+        duration-500
+
+        scale-x-100
+
+        md:origin-right
+        md:scale-x-0
+        md:group-hover:origin-left
+        md:group-hover:scale-x-100
+      "
+    />
+  </span>
+
+  {/* Arrow */}
   <svg
     width="14"
     height="14"
@@ -957,26 +995,6 @@ leading-7 mb-12">
       strokeWidth="1"
     />
   </svg>
-
-  <span
-    className="
-      absolute
-      -bottom-2
-      left-0
-      h-px
-      bg-[#b6925b]
-      transition-transform
-      duration-500
-
-      w-full
-      scale-x-100
-
-      md:origin-right
-      md:scale-x-0
-      md:group-hover:origin-left
-      md:group-hover:scale-x-100
-    "
-  />
 </Link>
       </div>
     </section>
@@ -1029,13 +1047,11 @@ leading-7 mb-12">
           rosewood, and quarried marble.
         </p>
    <Link
-  to="/collections/pooja"
-  onClick={(e) => {
-    e.currentTarget.blur();
-  }}
+  to="/collections/pooja"   // Change this for each section
+  replace
+  reloadDocument
   className="
     group
-    relative
     inline-flex
     items-center
     gap-3
@@ -1060,7 +1076,32 @@ leading-7 mb-12">
     active:outline-none
   "
 >
-  Discover
+  <span className="relative inline-block">
+    Discover
+
+    <span
+      className="
+        absolute
+        left-0
+        -bottom-2
+
+        h-px
+        w-[90px]
+        bg-[#b6925b]
+
+        transition-transform
+        duration-500
+
+        scale-x-100
+
+        md:w-full
+        md:origin-right
+        md:scale-x-0
+        md:group-hover:origin-left
+        md:group-hover:scale-x-100
+      "
+    />
+  </span>
 
   <svg
     width="14"
@@ -1082,26 +1123,6 @@ leading-7 mb-12">
       strokeWidth="1"
     />
   </svg>
-
-  <span
-    className="
-      absolute
-      -bottom-2
-      left-0
-      h-px
-      bg-[#b6925b]
-      transition-transform
-      duration-500
-
-      w-[130px]
-      scale-x-100
-
-      md:origin-right
-      md:scale-x-0
-      md:group-hover:origin-left
-      md:group-hover:scale-x-100
-    "
-  />
 </Link>
       </div>
       <div className="order-1 md:order-2 h-[45vh]
