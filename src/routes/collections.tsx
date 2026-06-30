@@ -128,10 +128,11 @@ switch (category) {
   return (
     <main className="min-h-screen bg-[#0f0f0f] text-white overflow-x-hidden">
       {/* Navbar */}
-      <SiteNav
-        menuOpen={menuOpen}
-        setMenuOpen={setMenuOpen}
-      />
+     <SiteNav
+  menuOpen={menuOpen}
+  setMenuOpen={setMenuOpen}
+  showLinks={true}
+/>
 
       {menuOpen && (
   <MobileMenu

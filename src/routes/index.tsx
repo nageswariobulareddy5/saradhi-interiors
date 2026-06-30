@@ -209,8 +209,8 @@ function TVUnits() {
     >
       <div className="md:col-span-7 h-[60vh] md:h-screen relative overflow-hidden group">
         <img
-  src={tvUnitsImg}
-  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+  src={tvUnitsImg} // or poojaImg, kitchenImg, etc.
+  alt=""
   width={1200}
   height={1080}
   loading="lazy"
@@ -218,12 +218,11 @@ function TVUnits() {
     w-full
     h-full
     object-cover
-    scale-105
     animate-floatingImage
     transition-transform
     duration-[2000ms]
-    ease-out
-    group-hover:scale-110
+    ease-[cubic-bezier(.22,1,.36,1)]
+    group-hover:scale-[1.08]
   "
 />
         <div className="absolute inset-0 bg-background/10" />
@@ -385,10 +384,10 @@ function Kitchens() {
   />
 </Link>
       </div>
-      <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
+      <div className="order-1 md:order-2 h-[60vh] md:h-screen relative overflow-hidden group">
         <img
-  src={poojaImg}
-  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+  src={poojaImg} // or poojaImg, kitchenImg, etc.
+  alt=""
   width={1200}
   height={1080}
   loading="lazy"
@@ -396,12 +395,11 @@ function Kitchens() {
     w-full
     h-full
     object-cover
-    scale-105
     animate-floatingImage
     transition-transform
     duration-[2000ms]
-    ease-out
-    group-hover:scale-110
+    ease-[cubic-bezier(.22,1,.36,1)]
+    group-hover:scale-[1.08]
   "
 />
       </div>
@@ -417,9 +415,9 @@ function Living() {
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-12 items-center"
     >
       <div className="md:col-span-7 h-[60vh] md:h-screen relative overflow-hidden group">
-        <img
-  src={tvUnitsImg}
-  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+       <img
+  src={tvUnitsImg} // or poojaImg, kitchenImg, etc.
+  alt=""
   width={1200}
   height={1080}
   loading="lazy"
@@ -427,12 +425,11 @@ function Living() {
     w-full
     h-full
     object-cover
-    scale-105
     animate-floatingImage
     transition-transform
     duration-[2000ms]
-    ease-out
-    group-hover:scale-110
+    ease-[cubic-bezier(.22,1,.36,1)]
+    group-hover:scale-[1.08]
   "
 />
         <div className="absolute inset-0 bg-background/10" />
@@ -590,10 +587,10 @@ function Bedrooms() {
   />
 </Link>
       </div>
-      <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
-        <img
-  src={poojaImg}
-  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+      <div className="order-1 md:order-2 h-[60vh] md:h-screen relative overflow-hidden group">
+       <img
+  src={poojaImg} // or poojaImg, kitchenImg, etc.
+  alt=""
   width={1200}
   height={1080}
   loading="lazy"
@@ -601,12 +598,11 @@ function Bedrooms() {
     w-full
     h-full
     object-cover
-    scale-105
     animate-floatingImage
     transition-transform
     duration-[2000ms]
-    ease-out
-    group-hover:scale-110
+    ease-[cubic-bezier(.22,1,.36,1)]
+    group-hover:scale-[1.08]
   "
 />
       </div>
@@ -623,9 +619,9 @@ function Wardrobes() {
       className="relative min-h-screen grid grid-cols-1 md:grid-cols-12 items-center"
     >
       <div className="md:col-span-7 h-[60vh] md:h-screen relative overflow-hidden group">
-        <img
-  src={tvUnitsImg}
-  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+       <img
+  src={tvUnitsImg} // or poojaImg, kitchenImg, etc.
+  alt=""
   width={1200}
   height={1080}
   loading="lazy"
@@ -633,12 +629,11 @@ function Wardrobes() {
     w-full
     h-full
     object-cover
-    scale-105
     animate-floatingImage
     transition-transform
     duration-[2000ms]
-    ease-out
-    group-hover:scale-110
+    ease-[cubic-bezier(.22,1,.36,1)]
+    group-hover:scale-[1.08]
   "
 />
         <div className="absolute inset-0 bg-background/10" />
@@ -798,10 +793,10 @@ function Pooja() {
   />
 </Link>
       </div>
-      <div className="order-1 md:order-2 h-[60vh] md:h-screen relative">
-        <img
-  src={poojaImg}
-  alt="Close detail of textured dark walnut joinery with warm integrated lighting"
+      <div className="order-1 md:order-2 h-[60vh] md:h-screen relative overflow-hidden group">
+       <img
+  src={poojaImg} // or poojaImg, kitchenImg, etc.
+  alt=""
   width={1200}
   height={1080}
   loading="lazy"
@@ -809,12 +804,11 @@ function Pooja() {
     w-full
     h-full
     object-cover
-    scale-105
     animate-floatingImage
     transition-transform
     duration-[2000ms]
-    ease-out
-    group-hover:scale-110
+    ease-[cubic-bezier(.22,1,.36,1)]
+    group-hover:scale-[1.08]
   "
 />
       </div>

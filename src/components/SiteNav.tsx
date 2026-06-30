@@ -10,11 +10,13 @@ const NAV_LINKS = [
 type Props = {
   menuOpen: boolean;
   setMenuOpen: (value: boolean) => void;
+  showLinks?: boolean;
 };
 
 export default function SiteNav({
   menuOpen,
   setMenuOpen,
+  showLinks = true,
 }: Props) {
   const [scrolled, setScrolled] = useState(false);
 
@@ -53,10 +55,10 @@ export default function SiteNav({
           px-6
           md:px-12
           ${
-  scrolled
-    ? "py-6 md:py-6"
-    : "py-9 md:py-11"
-}
+            scrolled
+              ? "py-6 md:py-6"
+              : "py-9 md:py-11"
+          }
           transition-all
           duration-500
         `}
@@ -71,30 +73,52 @@ export default function SiteNav({
 
         {/* Right Side */}
         <div className="flex items-center gap-8 md:gap-12">
-          {/* Desktop Navigation */}
-         <div
-  className={`
-    hidden md:flex
-    gap-8
-    text-[10px]
-    uppercase
-    tracking-[0.3em]
-    text-white/70
-    transition-opacity
-    duration-300
-    ${menuOpen ? "opacity-0 pointer-events-none" : "opacity-100"}
-  `}
->
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="hover:text-[#b6925b] transition-colors duration-500"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+
+     {showLinks && (
+  <div
+    className="
+      hidden
+      md:flex
+      items-center
+      gap-8
+      text-[10px]
+      uppercase
+      tracking-[0.3em]
+      text-white/70
+    "
+  >
+    {NAV_LINKS.map((link) => (
+  <a
+    key={link.href}
+    href={link.href}
+    onClick={(e) => {
+      // Close the mobile menu
+      setMenuOpen(false);
+
+      const hash = link.href.split("#")[1];
+
+      if (window.location.pathname === "/" && hash) {
+        e.preventDefault();
+
+        document
+          .getElementById(hash)
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+      }
+    }}
+    className="
+      hover:text-[#b6925b]
+      transition-colors
+      duration-500
+    "
+  >
+    {link.label}
+  </a>
+))}
+  </div>
+)}
 
           {/* Hamburger */}
           <button
