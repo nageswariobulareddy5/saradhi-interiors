@@ -316,8 +316,7 @@ leading-7 mb-12">
         </p>
   <Link
   to="/collections/tv-units"
-  replace
-  reloadDocument
+ 
   className="
     group
     inline-flex
@@ -445,8 +444,7 @@ leading-7 mb-12">
         </p>
 <Link
   to="/collections/kitchens"   // Change this for each section
-  replace
-  reloadDocument
+  
   className="
     group
     inline-flex
@@ -619,8 +617,7 @@ leading-7 mb-12">
         </p>
     <Link
   to="/collections/living"
-  replace
-  reloadDocument
+ 
   className="
     group
     inline-flex
@@ -745,8 +742,7 @@ leading-7 mb-12">
         </p>
   <Link
   to="/collections/bedrooms"   // Change this for each section
-  replace
-  reloadDocument
+  
   className="
     group
     inline-flex
@@ -1047,8 +1043,7 @@ leading-7 mb-12">
         </p>
    <Link
   to="/collections/pooja"   // Change this for each section
-  replace
-  reloadDocument
+  
   className="
     group
     inline-flex
