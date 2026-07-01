@@ -314,9 +314,16 @@ leading-7 mb-12">
           Sculptural monoliths that anchor the living space, merging technical
           precision with raw materiality.
         </p>
-  <Link
+ <Link
   to="/collections/tv-units"
- 
+  onClick={() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant" as ScrollBehavior,
+    });
+  }}
+
+
   className="
     group
     inline-flex
@@ -444,7 +451,12 @@ leading-7 mb-12">
         </p>
 <Link
   to="/collections/kitchens"   // Change this for each section
-  
+   onClick={() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant" as ScrollBehavior,
+    });
+  }}
   className="
     group
     inline-flex
@@ -617,6 +629,12 @@ leading-7 mb-12">
         </p>
     <Link
   to="/collections/living"
+   onClick={() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant" as ScrollBehavior,
+    });
+  }}
  
   className="
     group
@@ -742,6 +760,12 @@ leading-7 mb-12">
         </p>
   <Link
   to="/collections/bedrooms"   // Change this for each section
+   onClick={() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant" as ScrollBehavior,
+    });
+  }}
   
   className="
     group
@@ -916,6 +940,12 @@ leading-7 mb-12">
         </p>
      <Link
   to="/collections/wardrobes"
+   onClick={() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant" as ScrollBehavior,
+    });
+  }}
 
   className="
     group
@@ -1043,6 +1073,12 @@ leading-7 mb-12">
         </p>
    <Link
   to="/collections/pooja"   // Change this for each section
+   onClick={() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "instant" as ScrollBehavior,
+    });
+  }}
   
   className="
     group

@@ -130,11 +130,16 @@ export default function SiteNav({
                         });
                     }
                   }}
-                  className="
-                    hover:text-[#b6925b]
-                    transition-colors
-                    duration-500
-                  "
+              className="
+  
+  px-0
+  py-0
+  whitespace-nowrap
+  font-semibold
+  hover:text-[#b6925b]
+  transition-colors
+  duration-500
+"
                 >
                   {link.label}
                 </a>

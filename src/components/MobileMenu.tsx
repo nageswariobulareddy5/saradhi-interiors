@@ -53,23 +53,26 @@ export default function MobileMenu({ onClose }: Props) {
       <div className="mx-auto w-full max-w-7xl">
 
         {/* ---------------- Mobile Navigation ---------------- */}
-        <div
-          className="
-            flex
-            md:hidden
-            justify-center
-            items-center
-            flex-wrap
-            gap-x-4
-            gap-y-3
-            mt-6
-            mb-8
-            text-[10px]
-            uppercase
-            tracking-[0.3em]
-            text-white/70
-          "
-        >
+       <div
+  className="
+    flex
+    md:hidden
+    justify-between
+    items-center
+
+    w-full
+
+    mt-8
+    mb-8
+
+    text-[4px]
+    font-semibold
+    uppercase
+    tracking-[0.05em]
+
+    text-white/40
+  "
+>
           <button
             onClick={() => goToSection("home")}
             className="
