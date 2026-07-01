@@ -60,7 +60,7 @@ export default function MobileMenu({ onClose }: Props) {
     md:hidden
     justify-center
     items-center
-    gap-[10px]
+    gap-[14px]
 
     w-full
 
