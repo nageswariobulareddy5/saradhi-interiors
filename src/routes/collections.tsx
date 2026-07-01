@@ -55,15 +55,10 @@ function CollectionsPage() {
   const { category } = useParams();
   const location = useLocation();
 
-  const handleBack = () => {
-  const section = location.state?.returnTo ?? "home";
+ 
 
-  navigate("/", {
-    state: {
-      returnTo: section,
-    },
-  });
-};
+const returnTo =
+  (location.state as { returnTo?: string })?.returnTo ?? "home";
  
 let gallery: GalleryItem[] = [];
 
@@ -206,27 +201,33 @@ lg:text-[8rem]
 
     {/* Back Home */}
 
-    <div className="mt-8 flex items-center gap-6">
-      <Link
-        to="/"
-        className="
-          font-mono
-          uppercase
-          tracking-[0.35em]
-         text-[12px]
-sm:text-[15px]
-          text-white/70
-          hover:text-[#b6925b]
-          transition-colors
-          duration-500
-        "
-      >
-        ← Back Home
-      </Link>
+   <div className="mt-8 flex items-center gap-6">
+  <button
+    type="button"
+    onClick={() => {
+      navigate("/", {
+        state: {
+          scrollTo: returnTo,
+        },
+      });
+    }}
+    className="
+      font-mono
+      uppercase
+      tracking-[0.35em]
+      text-[12px]
+      sm:text-[15px]
+      text-white/70
+      hover:text-[#b6925b]
+      transition-colors
+      duration-500
+    "
+  >
+    ← Back Home
+  </button>
 
-      <div className="h-px w-20 bg-[#b6925b]" />
-    </div>
-
+  <div className="h-px w-20 bg-[#b6925b]" />
+</div>
     <p
       className="
         mt-10

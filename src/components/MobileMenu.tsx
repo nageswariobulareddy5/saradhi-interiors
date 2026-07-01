@@ -54,37 +54,33 @@ export default function MobileMenu({ onClose }: Props) {
 
         {/* ---------------- Mobile Navigation ---------------- */}
        <div
-    className="
+  
+  className="
     flex
     md:hidden
-    justify-between
+    justify-center
     items-center
-    w-[150px]
-    mt-6
-    mb-6
-    text-[1px]
-    uppercase
-    tracking-[0.01em]
-    text-white/55
+    gap-[10px]
+
+    w-full
+
+    mt-5
+    mb-5
   "
 >
 
+
           <button
             onClick={() => goToSection("home")}
-           className="
-  px-1
-  py-1
-
-  text-[1px]
-  font-small
+          className="
+  !text-[13px]
+  !font-normal
   uppercase
-  tracking-[0.01em]
-
-  text-white/55
-
-  hover:text-[#b6925b]
+  tracking-[0.03em]
+  text-white/60
   transition-colors
-  duration-500
+  duration-300
+  hover:text-[#b6925b]
 "
           >
             HOME
@@ -92,20 +88,15 @@ export default function MobileMenu({ onClose }: Props) {
 
           <button
             onClick={() => goToSection("tv-units")}
-           className="
-  px-1
-  py-1
-
-  text-[1px]
-  font-small
+          className="
+  !text-[13px]
+  !font-normal
   uppercase
-  tracking-[0.01em]
-
-  text-white/55
-
-  hover:text-[#b6925b]
+  tracking-[0.03em]
+  text-white/60
   transition-colors
-  duration-500
+  duration-300
+  hover:text-[#b6925b]
 "
           >
             COLLECTIONS
@@ -114,19 +105,14 @@ export default function MobileMenu({ onClose }: Props) {
           <button
             onClick={() => goToSection("about")}
           className="
-  px-1
-  py-1
-
-  text-[1px]
-  font-small
+  !text-[13px]
+  !font-normal
   uppercase
-  tracking-[0.01em]
-
-  text-white/55
-
-  hover:text-[#b6925b]
+  tracking-[0.03em]
+  text-white/60
   transition-colors
-  duration-500
+  duration-300
+  hover:text-[#b6925b]
 "
           >
             ABOUT
@@ -135,19 +121,14 @@ export default function MobileMenu({ onClose }: Props) {
           <button
             onClick={() => goToSection("contact")}
           className="
-  px-1
-  py-1
-
-  text-[1px]
-  font-small
+  !text-[13px]
+  !font-normal
   uppercase
-  tracking-[0.01em]
-
-  text-white/55
-
-  hover:text-[#b6925b]
+  tracking-[0.03em]
+  text-white/60
   transition-colors
-  duration-500
+  duration-300
+  hover:text-[#b6925b]
 "
           >
             CONSULT

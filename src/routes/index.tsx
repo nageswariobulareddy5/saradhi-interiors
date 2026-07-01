@@ -33,20 +33,18 @@ useEffect(() => {
     };
   }, [menuOpen]);
 
-  useEffect(() => {
-  const section = location.state?.returnTo;
+ useEffect(() => {
+  const section =
+    (location.state as { scrollTo?: string })?.scrollTo;
 
-  if (section) {
-    setTimeout(() => {
-      document.getElementById(section)?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+  if (!section) return;
 
-      // Clear the state so refreshes don't keep scrolling
-      window.history.replaceState({}, document.title);
-    }, 100);
-  }
+  setTimeout(() => {
+    document.getElementById(section)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 100);
 }, [location]);
 
   return (
@@ -471,6 +469,7 @@ leading-7 mb-12">
         </p>
 <Link
   to="/collections/kitchens"   // Change this for each section
+    state={{ returnTo: "kitchens" }}
    onClick={() => {
     window.scrollTo({
       top: 0,
@@ -649,6 +648,7 @@ leading-7 mb-12">
         </p>
     <Link
   to="/collections/living"
+    state={{ returnTo: "living" }}
    onClick={() => {
     window.scrollTo({
       top: 0,
@@ -780,6 +780,7 @@ leading-7 mb-12">
         </p>
   <Link
   to="/collections/bedrooms"   // Change this for each section
+    state={{ returnTo: "bedrooms" }}
    onClick={() => {
     window.scrollTo({
       top: 0,
@@ -960,6 +961,7 @@ leading-7 mb-12">
         </p>
      <Link
   to="/collections/wardrobes"
+    state={{ returnTo: "wardrobes" }}
    onClick={() => {
     window.scrollTo({
       top: 0,
@@ -1093,6 +1095,7 @@ leading-7 mb-12">
         </p>
    <Link
   to="/collections/pooja"   // Change this for each section
+    state={{ returnTo: "pooja" }}
    onClick={() => {
     window.scrollTo({
       top: 0,
