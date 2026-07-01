@@ -2,7 +2,12 @@ import { useLayoutEffect, useState } from "react";
 import Footer from "../components/Footer";
 import SiteNav from "../components/SiteNav";
 
-import { Link, useParams, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useParams,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import { tvUnits } from "../data/tvUnits";
 import { kitchens } from "../data/kitchens";
 import { living } from "../data/living";
@@ -48,7 +53,17 @@ function CollectionsPage() {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const { category } = useParams();
+  const location = useLocation();
 
+  const handleBack = () => {
+  const section = location.state?.returnTo ?? "home";
+
+  navigate("/", {
+    state: {
+      returnTo: section,
+    },
+  });
+};
  
 let gallery: GalleryItem[] = [];
 

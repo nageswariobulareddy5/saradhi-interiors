@@ -14,6 +14,9 @@ import SiteNav from "../components/SiteNav";
 
 
 
+
+
+
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
 const location = useLocation();
@@ -29,6 +32,22 @@ useEffect(() => {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+  const section = location.state?.returnTo;
+
+  if (section) {
+    setTimeout(() => {
+      document.getElementById(section)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      // Clear the state so refreshes don't keep scrolling
+      window.history.replaceState({}, document.title);
+    }, 100);
+  }
+}, [location]);
 
   return (
     <div className="min-h-[100svh]
@@ -316,6 +335,7 @@ leading-7 mb-12">
         </p>
  <Link
   to="/collections/tv-units"
+   state={{ returnTo: "tv-units" }}
   onClick={() => {
     window.scrollTo({
       top: 0,

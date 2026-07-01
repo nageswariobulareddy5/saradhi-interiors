@@ -54,65 +54,101 @@ export default function MobileMenu({ onClose }: Props) {
 
         {/* ---------------- Mobile Navigation ---------------- */}
        <div
-  className="
+    className="
     flex
     md:hidden
     justify-between
     items-center
-
-    w-full
-
-    mt-8
-    mb-8
-
-    text-[4px]
-    font-semibold
+    w-[150px]
+    mt-6
+    mb-6
+    text-[1px]
     uppercase
-    tracking-[0.05em]
-
-    text-white/40
+    tracking-[0.01em]
+    text-white/55
   "
 >
+
           <button
             onClick={() => goToSection("home")}
-            className="
-              transition-colors
-              duration-500
-              hover:text-[#b6925b]
-            "
+           className="
+  px-1
+  py-1
+
+  text-[1px]
+  font-small
+  uppercase
+  tracking-[0.01em]
+
+  text-white/55
+
+  hover:text-[#b6925b]
+  transition-colors
+  duration-500
+"
           >
             HOME
           </button>
 
           <button
             onClick={() => goToSection("tv-units")}
-            className="
-              transition-colors
-              duration-500
-              hover:text-[#b6925b]
-            "
+           className="
+  px-1
+  py-1
+
+  text-[1px]
+  font-small
+  uppercase
+  tracking-[0.01em]
+
+  text-white/55
+
+  hover:text-[#b6925b]
+  transition-colors
+  duration-500
+"
           >
             COLLECTIONS
           </button>
 
           <button
             onClick={() => goToSection("about")}
-            className="
-              transition-colors
-              duration-500
-              hover:text-[#b6925b]
-            "
+          className="
+  px-1
+  py-1
+
+  text-[1px]
+  font-small
+  uppercase
+  tracking-[0.01em]
+
+  text-white/55
+
+  hover:text-[#b6925b]
+  transition-colors
+  duration-500
+"
           >
             ABOUT
           </button>
 
           <button
             onClick={() => goToSection("contact")}
-            className="
-              transition-colors
-              duration-500
-              hover:text-[#b6925b]
-            "
+          className="
+  px-1
+  py-1
+
+  text-[1px]
+  font-small
+  uppercase
+  tracking-[0.01em]
+
+  text-white/55
+
+  hover:text-[#b6925b]
+  transition-colors
+  duration-500
+"
           >
             CONSULT
           </button>
