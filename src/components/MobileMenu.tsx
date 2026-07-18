@@ -42,8 +42,8 @@ export default function MobileMenu({ onClose }: Props) {
         fixed
         inset-0
         z-40
-        bg-[#0f0f0f]/95
-        backdrop-blur-2xl
+       bg-white
+backdrop-blur-xl
         overflow-y-auto
         px-5
         py-20
@@ -68,19 +68,17 @@ export default function MobileMenu({ onClose }: Props) {
     mb-5
   "
 >
-
-
-          <button
+ <button
             onClick={() => goToSection("home")}
           className="
   !text-[13px]
   !font-normal
   uppercase
   tracking-[0.03em]
-  text-white/60
+  text-black/60
   transition-colors
   duration-300
-  hover:text-[#b6925b]
+ hover:text-black
 "
           >
             HOME
@@ -93,10 +91,10 @@ export default function MobileMenu({ onClose }: Props) {
   !font-normal
   uppercase
   tracking-[0.03em]
-  text-white/60
+  text-black/60
   transition-colors
   duration-300
-  hover:text-[#b6925b]
+  hover:text-black
 "
           >
             COLLECTIONS
@@ -109,10 +107,10 @@ export default function MobileMenu({ onClose }: Props) {
   !font-normal
   uppercase
   tracking-[0.03em]
-  text-white/60
+  text-black/60
   transition-colors
   duration-300
-  hover:text-[#b6925b]
+  hover:text-black
 "
           >
             ABOUT
@@ -125,10 +123,10 @@ export default function MobileMenu({ onClose }: Props) {
   !font-normal
   uppercase
   tracking-[0.03em]
-  text-white/60
+  text-black/60
   transition-colors
   duration-300
-  hover:text-[#b6925b]
+  hover:text-black
 "
           >
             CONSULT
@@ -136,7 +134,7 @@ export default function MobileMenu({ onClose }: Props) {
         </div>
 
         {/* Divider - Mobile Only */}
-        <div className="md:hidden w-full h-px bg-[#b6925b]/25 mb-8" />
+        <div className="md:hidden w-full h-px bg-black/10 mb-8" />
 
         {/* Heading */}
         <p
@@ -146,10 +144,10 @@ export default function MobileMenu({ onClose }: Props) {
             mb-10
             text-center
             uppercase
-            tracking-[0.55em]
-            text-[10px]
-            md:text-[11px]
-            text-[#b6925b]
+           text-[10px]
+md:text-[11px]
+tracking-[0.55em]
+text-black/55
           "
         >
           Collections
@@ -178,8 +176,8 @@ export default function MobileMenu({ onClose }: Props) {
                 rounded-xl
                 sm:rounded-2xl
                 border
-                border-[#2d2418]
-                bg-white/[0.03]
+              border-black/10
+                bg-[#fafafa] 
                 backdrop-blur-xl
 
                 px-5
@@ -194,68 +192,76 @@ export default function MobileMenu({ onClose }: Props) {
                 transition-all
                 duration-700
 
-                hover:border-[#b6925b]
-                hover:bg-[#181410]
-                hover:-translate-y-2
-                hover:shadow-[0_20px_60px_rgba(182,146,91,.18)]
+                hover:border-black
+hover:bg-white
+hover:-translate-y-2
+hover:shadow-xl
               "
             >
-              <div className="flex items-center justify-between">
+             <div className="relative z-10 flex items-center justify-between">
 
                 <span
-                  className="
-                    font-display
-                    text-[1.45rem]
-                    sm:text-[1.7rem]
-                    md:text-3xl
-                    text-white
-                    transition-colors
-                    duration-500
-                    group-hover:text-[#b6925b]
-                  "
-                >
-                  {item.label}
-                </span>
+  className="
+    font-display
+    font-medium
+    tracking-[-0.03em]
 
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="
-                    text-white
-                    transition-all
-                    duration-500
-                    group-hover:text-[#b6925b]
-                    group-hover:translate-x-1
-                  "
-                >
-                  <path
-                    d="M5 12H19M13 6L19 12L13 18"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+    text-[1.45rem]
+    sm:text-[1.7rem]
+    md:text-3xl
+
+    text-black
+
+    transition-colors
+    duration-500
+
+    group-hover:text-black
+  "
+>
+  {item.label}
+</span>
+
+               <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    className="w-5 h-5 text-black flex-shrink-0"
+    fill="none"
+>
+    <path
+        d="M5 12H19"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+    />
+    <path
+        d="M13 6L19 12L13 18"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+    />
+</svg>
               </div>
 
               {/* Gold Underline */}
               <span
-                className="
-                  absolute
-                  left-0
-                  bottom-0
-                  h-[2px]
-                  w-full
-                  bg-[#b6925b]
-                  origin-left
-                  scale-x-0
-                  transition-transform
-                  duration-700
-                  group-hover:scale-x-100
-                "
-              />
+  className="
+    absolute
+    left-0
+    bottom-0
+    h-[2px]
+    w-full
+    bg-black
+    origin-left
+    scale-x-0
+    transition-transform
+    duration-700
+    group-hover:scale-x-100
+    z-0
+  "
+/>
             </a>
           ))}
         </div>

@@ -11,6 +11,7 @@ function Footer() {
         md:py-20
         border-t
         border-border
+        bg-black
       "
     >
       <div
@@ -29,12 +30,17 @@ function Footer() {
           <h2
             className="
               font-display
-              italic
+              text-white
+
               text-[2rem]
               sm:text-[2.4rem]
               md:text-5xl
+
+              font-medium
+              leading-[0.92]
+              tracking-[-0.04em]
+
               mb-5
-              text-white
             "
           >
             Saradhi Interiors
@@ -44,7 +50,7 @@ function Footer() {
             className="
               text-[13px]
               sm:text-sm
-              text-muted-foreground
+              text-white/60
               leading-7
             "
           >
@@ -68,20 +74,27 @@ function Footer() {
               flex
               flex-col
               gap-4
-              text-[10px]
-              uppercase
-              tracking-[0.3em]
             "
           >
-            <span className="text-white font-semibold mb-1">
+            <span
+              className="
+                font-mono
+                text-[10px]
+                uppercase
+                tracking-[0.3em]
+                text-white
+                font-medium
+                mb-1
+              "
+            >
               Social
             </span>
 
             <a
               href="#"
               className="
-                text-muted-foreground
-                hover:text-[#b6925b]
+                text-white/60
+                hover:text-white
                 transition-colors
                 duration-500
               "
@@ -92,8 +105,8 @@ function Footer() {
             <a
               href="#"
               className="
-                text-muted-foreground
-                hover:text-[#b6925b]
+                text-white/60
+                hover:text-white
                 transition-colors
                 duration-500
               "
@@ -104,8 +117,8 @@ function Footer() {
             <a
               href="#"
               className="
-                text-muted-foreground
-                hover:text-[#b6925b]
+                text-white/60
+                hover:text-white
                 transition-colors
                 duration-500
               "
@@ -120,20 +133,27 @@ function Footer() {
               flex
               flex-col
               gap-4
-              text-[10px]
-              uppercase
-              tracking-[0.3em]
             "
           >
-            <span className="text-white font-semibold mb-1">
+            <span
+              className="
+                font-mono
+                text-[10px]
+                uppercase
+                tracking-[0.3em]
+                text-white
+                font-medium
+                mb-1
+              "
+            >
               Legal
             </span>
 
             <a
               href="#"
               className="
-                text-muted-foreground
-                hover:text-[#b6925b]
+                text-white/60
+                hover:text-white
                 transition-colors
                 duration-500
               "
@@ -144,8 +164,8 @@ function Footer() {
             <a
               href="#"
               className="
-                text-muted-foreground
-                hover:text-[#b6925b]
+                text-white/60
+                hover:text-white
                 transition-colors
                 duration-500
               "
@@ -163,8 +183,9 @@ function Footer() {
           sm:mt-16
           pt-6
           sm:pt-8
+
           border-t
-          border-border
+          border-white/10
 
           flex
           flex-col
@@ -177,11 +198,12 @@ function Footer() {
           text-[9px]
           uppercase
           tracking-[0.3em]
-          text-muted-foreground/60
+
+          text-white/45
         "
       >
         <span className="leading-relaxed">
-          © 2024 Saradhi Interiors. All rights reserved.
+          © 2026 Saradhi Interiors. All rights reserved.
         </span>
 
         <span className="leading-relaxed">

@@ -2,10 +2,10 @@
 @source "../src";
 @import "tw-animate-css";
 
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
@@ -18,163 +18,334 @@
 
   --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", monospace;
 
-  --ease-gallery: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-gallery: cubic-bezier(.32,.72,0,1);
 
   --animate-fade-up: fade-up 1s var(--ease-gallery) both;
   --animate-fade-in: fade-in 1.2s var(--ease-gallery) both;
   --animate-scroll-hint: scroll-hint 2s ease-in-out infinite;
 
   @keyframes fade-up {
-    0% { opacity: 0; transform: translateY(24px); }
-    100% { opacity: 1; transform: translateY(0); }
+    from {
+      opacity:0;
+      transform:translateY(30px);
+    }
+    to {
+      opacity:1;
+      transform:translateY(0);
+    }
   }
+
   @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    from { opacity:0; }
+    to { opacity:1; }
   }
+
   @keyframes scroll-hint {
-    0%, 100% { transform: translateY(0); opacity: 0.4; }
-    50% { transform: translateY(8px); opacity: 0.9; }
+    0%,100%{
+      opacity:.25;
+      transform:translateY(0);
+    }
+    50%{
+      opacity:.9;
+      transform:translateY(8px);
+    }
   }
+
   @keyframes slow-zoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.08); }
+    from{
+      transform:scale(1);
+    }
+    to{
+      transform:scale(1.06);
+    }
   }
+
 }
+
+/* ------------------------------------------------ */
+/*              GUCCI INSPIRED COLORS               */
+/* ------------------------------------------------ */
 
 :root {
-  --background: oklch(0.16 0.012 60);
-  --foreground: oklch(0.94 0.012 80);
-  --surface: oklch(0.21 0.014 60);
-  --muted: oklch(0.94 0.012 80 / 0.45);
-  --muted-foreground: oklch(0.94 0.012 80 / 0.6);
-  --accent: oklch(0.78 0.07 80);
-  --accent-foreground: oklch(0.16 0.012 60);
-  --border: oklch(0.94 0.012 80 / 0.08);
+  --background: #000000;
+  --foreground: #ffffff;
+
+  --surface: #050505;
+
+  --muted: rgba(255,255,255,.45);
+  --muted-foreground: rgba(255,255,255,.65);
+
+  --accent: #ffffff;
+  --accent-foreground: #000000;
+
+  --border: rgba(255,255,255,.10);
 }
 
-.dark {
-  --background: oklch(0.16 0.012 60);
-  --foreground: oklch(0.94 0.012 80);
+.dark{
+
+  --background:#000;
+
+  --foreground:#fff;
+
 }
 
-@layer base {
-  html {
-    scroll-behavior: auto;
-  }
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-body);
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  ::selection {
-    background: oklch(0.78 0.07 80 / 0.3);
-    color: var(--color-foreground);
-  }
+/* ------------------------------------------------ */
+
+@layer base{
+
+html{
+
+scroll-behavior:smooth;
+
 }
 
-@utility font-display {
-  font-family: "Cormorant Garamond", serif;
-}
-@utility font-mono {
-  font-family: var(--font-mono);
-}
+body{
 
-@utility slow-zoom {
-  animation: slow-zoom 18s ease-in-out infinite alternate;
-}
+background:var(--color-background);
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+color:var(--color-foreground);
 
-@keyframes floatingImage {
-  0% {
-    transform: scale(1.05);
-  }
+font-family:var(--font-body);
 
-  50% {
-    transform: scale(1.12);
-  }
+font-weight:300;
 
-  100% {
-    transform: scale(1.05);
-  }
+letter-spacing:.01em;
+
+line-height:1.65;
+
+overflow-x:hidden;
+
+-webkit-font-smoothing:antialiased;
+
+text-rendering:optimizeLegibility;
+
 }
 
-.animate-floatingImage {
-  animation: floatingImage 10s ease-in-out infinite;
-  will-change: transform;
+/* Elegant Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+font-family:var(--font-display);
+
+font-weight:500;
+
+letter-spacing:.02em;
+
+line-height:1.08;
+
 }
 
-/* ---------- Global ---------- */
+/* Links */
 
-html {
-  scroll-behavior: smooth;
+a{
+
+transition:all .35s ease;
+
+text-decoration:none;
+
 }
 
-body {
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+a:hover{
+
+opacity:.75;
+
 }
 
-* {
-  box-sizing: border-box;
+/* Buttons */
+
+button{
+
+transition:
+
+background .35s ease,
+
+color .35s ease,
+
+border-color .35s ease,
+
+transform .35s ease;
+
+}
+
+button:hover{
+
+transform:translateY(-1px);
+
+}
+
+::selection{
+    background:white;
+    color:black;
+}
+
+}
+
+/* ------------------------------------------------ */
+
+@utility font-display{
+
+font-family:"Cormorant Garamond",serif;
+
+}
+
+@utility font-mono{
+
+font-family:var(--font-mono);
+
+}
+
+@utility slow-zoom{
+
+animation:slow-zoom 18s ease-in-out infinite alternate;
+
+}
+
+/* ------------------------------------------------ */
+
+@media(prefers-reduced-motion:reduce){
+
+*,
+*::before,
+*::after{
+
+animation-duration:.01ms!important;
+
+animation-iteration-count:1!important;
+
+transition-duration:.01ms!important;
+
+scroll-behavior:auto!important;
+
+}
+
+}
+
+/* ------------------------------------------------ */
+
+@keyframes floatingImage{
+
+0%{
+
+transform:scale(1.03);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1.03);
+
+}
+
+}
+
+.animate-floatingImage{
+
+animation:floatingImage 12s ease-in-out infinite;
+
+will-change:transform;
+
+}
+
+/* ------------------------------------------------ */
+
+*{
+
+box-sizing:border-box;
+
 }
 
 img,
-video {
-  max-width: 100%;
-  display: block;
+video{
+
+display:block;
+
+max-width:100%;
+
+}
+
+img{
+
+transition:transform .8s cubic-bezier(.2,.8,.2,1);
+
 }
 
 button,
-a {
-  -webkit-tap-highlight-color: transparent;
+a{
+
+-webkit-tap-highlight-color:transparent;
+
 }
 
 input,
 textarea,
 button,
-select {
-  font-size: 16px;
+select{
+
+font-size:16px;
+
 }
 
-/* ---------- Premium Scrollbar ---------- */
+/* ------------------------------------------------ */
+/*             GUCCI STYLE SCROLLBAR               */
+/* ------------------------------------------------ */
 
-::-webkit-scrollbar {
-  width: 8px;
+::-webkit-scrollbar{
+
+width:8px;
+
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+    background:#000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b6925b;
-  border-radius: 20px;
+    background:rgba(255,255,255,.35);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c7a36d;
+    background:rgba(255,255,255,.7);
 }
 
-/* ---------- Selection ---------- */
+/* ------------------------------------------------ */
+/*          Luxury Divider Appearance               */
+/* ------------------------------------------------ */
 
-::selection {
-  background: #b6925b;
-  color: white;
+hr{
+
+border:none;
+
+height:1px;
+
+background:rgba(255,255,255,.08);
+
+}
+
+/* ------------------------------------------------ */
+/*        Smooth Interactive Feeling                */
+/* ------------------------------------------------ */
+
+section{
+
+position:relative;
+
+}
+
+section:not(:last-child){
+
+border-bottom:1px solid rgba(255,255,255,.05);
+
 }

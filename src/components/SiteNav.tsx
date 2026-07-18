@@ -11,19 +11,27 @@ type Props = {
   menuOpen: boolean;
   setMenuOpen: (value: boolean) => void;
   showLinks?: boolean;
+  forceLight?: boolean;
 };
 
 export default function SiteNav({
   menuOpen,
   setMenuOpen,
   showLinks = true,
+  forceLight = false,
 }: Props) {
+  // Keep track of scrolling
   const [scrolled, setScrolled] = useState(false);
+
+  // Decide whether navbar should be light
+  const isLight = forceLight || scrolled;
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 70);
+      setScrolled(window.scrollY > 120);
     };
+
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
 
@@ -37,16 +45,16 @@ export default function SiteNav({
       aria-label="Primary"
       className={`
         fixed
-        top-0
         inset-x-0
+        top-0
         z-50
         transition-all
         duration-500
         ease-in-out
         ${
-          scrolled
-            ? "bg-black/90 backdrop-blur-md border-b border-[#b6925b]/20 shadow-xl"
-            : "bg-transparent mix-blend-difference"
+          isLight
+            ? "bg-white border-b border-black/10 shadow-sm"
+            : "bg-transparent"
         }
       `}
     >
@@ -55,41 +63,46 @@ export default function SiteNav({
           mx-auto
           max-w-[1700px]
           flex
-          justify-between
           items-center
+          justify-between
           px-5
           sm:px-6
           md:px-12
+          transition-all
+          duration-500
           ${
-            scrolled
+            isLight
               ? "py-4 sm:py-5 md:py-6"
               : "py-6 sm:py-7 md:py-11"
           }
-          transition-all
-          duration-500
         `}
       >
         {/* Logo */}
-        <a
-          href="/"
-          className="
-            font-display
-            italic
-            tracking-tight
-            text-white
-            text-[1.35rem]
-            sm:text-[1.55rem]
-            md:text-[1.8rem]
-            whitespace-nowrap
-          "
-        >
-          Saradhi Interiors
-        </a>
+       {/* Logo */}
+<a
+  href="/"
+  className={`
+    font-display
+    font-medium
+    tracking-[-0.03em]
+    whitespace-nowrap
+    text-[1.35rem]
+    sm:text-[1.55rem]
+    md:text-[1.8rem]
+    transition-colors
+    duration-500
+    ${
+      isLight
+        ? "text-black"
+        : "text-white"
+    }
+  `}
+>
+  Saradhi Interiors
+</a>
 
-        {/* Right Side */}
         <div className="flex items-center gap-5 sm:gap-8 md:gap-12">
 
-          {/* Desktop Navigation */}
           {showLinks && (
             <div
               className={`
@@ -97,10 +110,9 @@ export default function SiteNav({
                 md:flex
                 items-center
                 gap-8
-                text-[10px]
                 uppercase
-                tracking-[0.3em]
-                text-white/70
+                tracking-[0.30em]
+                text-[10px]
                 transition-opacity
                 duration-300
                 ${
@@ -130,16 +142,17 @@ export default function SiteNav({
                         });
                     }
                   }}
-              className="
-  
-  px-0
-  py-0
-  whitespace-nowrap
-  font-semibold
-  hover:text-[#b6925b]
-  transition-colors
-  duration-500
-"
+                  className={`
+                    whitespace-nowrap
+                    font-semibold
+                    transition-colors
+                    duration-500
+                    ${
+                      isLight
+                        ? "text-black/70 hover:text-black"
+                        : "text-white/70 hover:text-white"
+                    }
+                  `}
                 >
                   {link.label}
                 </a>
@@ -164,21 +177,42 @@ export default function SiteNav({
             "
           >
             <span
-              className={`h-px bg-white transition-all duration-300 ${
-                menuOpen
-                  ? "w-6 translate-y-[3px] rotate-45"
-                  : "w-7"
-              }`}
+              className={`
+                h-px
+                transition-all
+                duration-300
+                ${
+                  isLight
+                    ? "bg-black"
+                    : "bg-black"
+                }
+                ${
+                  menuOpen
+                    ? "w-6 translate-y-[3px] rotate-45"
+                    : "w-7"
+                }
+              `}
             />
 
             <span
-              className={`h-px bg-white transition-all duration-300 ${
-                menuOpen
-                  ? "w-6 -translate-y-[3px] -rotate-45"
-                  : "w-4 group-hover:w-7"
-              }`}
+              className={`
+                h-px
+                transition-all
+                duration-300
+                ${
+                  isLight
+                    ? "bg-black"
+                    : "bg-black"
+                }
+                ${
+                  menuOpen
+                    ? "w-6 -translate-y-[3px] -rotate-45"
+                    : "w-4 group-hover:w-7"
+                }
+              `}
             />
           </button>
+
         </div>
       </div>
     </nav>

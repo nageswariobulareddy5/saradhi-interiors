@@ -126,13 +126,14 @@ switch (category) {
   return (
     <main
   key={category}
-  className="min-h-screen bg-[#0f0f0f] text-white overflow-x-hidden"
+  className="min-h-screen bg-white text-black overflow-x-hidden"
 >
       {/* Navbar */}
      <SiteNav
   menuOpen={menuOpen}
   setMenuOpen={setMenuOpen}
   showLinks={true}
+  forceLight={true}
 />
 
       {menuOpen && (
@@ -154,7 +155,7 @@ switch (category) {
     md:pb-20
   "
 >
-  <div className="absolute inset-0 bg-gradient-to-b from-black via-[#111111] to-[#0f0f0f]" />
+  <div className="absolute inset-0 bg-white" />
 
   <div
   className="
@@ -175,27 +176,29 @@ switch (category) {
         tracking-[0.55em]
         text-[9px]
 sm:text-[10px]
-        text-[#b6925b]
+        text-black/50
       "
     >
       COLLECTIONS
     </p>
 
     <h1
-  className="
-    mt-6
-    font-display
-    italic
-    font-semibold
-   text-[2.7rem]
+
+className="
+mt-6
+font-display
+font-medium
+text-black
+text-[2.7rem]
 sm:text-[3.7rem]
 md:text-[6rem]
 lg:text-[8rem]
-    leading-[0.9]
-    tracking-[-0.05em]
-    max-w-5xl
-  "
+leading-[0.9]
+tracking-[-0.05em]
+max-w-5xl
+"
 >
+
   {title}
 </h1>
 
@@ -217,8 +220,8 @@ lg:text-[8rem]
       tracking-[0.35em]
       text-[12px]
       sm:text-[15px]
-      text-white/70
-      hover:text-[#b6925b]
+      text-black/60
+      hover:text-black
       transition-colors
       duration-500
     "
@@ -226,7 +229,7 @@ lg:text-[8rem]
     ← Back Home
   </button>
 
-  <div className="h-px w-20 bg-[#b6925b]" />
+  <div className="h-px w-20 bg-black/20" />
 </div>
     <p
       className="
@@ -234,15 +237,17 @@ lg:text-[8rem]
         max-w-xl
         text-[16px]
         leading-8
-        text-white/55
+        text-black/55
       "
     >
     </p>
   </div>
 </section>
+
+
       {/* Gallery */}
       <section
-  className="pb-52 min-h-screen"
+className="pb-52 min-h-screen bg-white"
   style={{
     contentVisibility: "auto",
     containIntrinsicSize: "3000px",
@@ -275,12 +280,12 @@ lg:text-[8rem]
   sm:rounded-2xl
                 group
                 cursor-pointer
-                shadow-lg
+                shadow-sm
                 transition-all
                 duration-1000
                 ease-[cubic-bezier(.22,1,.36,1)]
                 hover:-translate-y-2
-                hover:shadow-2xl
+                hover:shadow-lg
                 
               "
               
@@ -336,7 +341,7 @@ md:group-hover:scale-[1.04]
                     absolute
                     inset-0
                     bg-gradient-to-t
-                    from-black/30
+                    from-black/15
                     via-transparent
                     to-transparent
                     opacity-0
@@ -350,14 +355,14 @@ md:group-hover:scale-[1.04]
                 <div
                   className="
                     absolute
-                    bottom-0
-                    left-0
-                    h-[2px]
-                    w-0
-                    bg-[#b6925b]
-                    transition-all
-                    duration-700
-                    group-hover:w-full
+    bottom-0
+    left-0
+    h-px
+    w-0
+    bg-black
+    transition-all
+    duration-700
+    group-hover:w-full
                   "
                 />
               </div>
@@ -367,7 +372,9 @@ md:group-hover:scale-[1.04]
       </section>
 
       {/* Footer */}
-      <Footer />
+      <div className="bg-black text-white">
+  <Footer />
+</div>
     </main>
   );
 }
