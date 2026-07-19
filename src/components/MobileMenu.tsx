@@ -37,22 +37,98 @@ export default function MobileMenu({ onClose }: Props) {
   };
 
   return (
-    <div
+   <div
+  className="
+    fixed
+    inset-0
+    z-50
+
+    flex
+
+    bg-black/25
+    backdrop-blur-md
+
+    animate-fade-in
+  "
+>
+  {/* Left Side */}
+<div
+  className="
+    hidden
+    lg:block
+
+    w-1/2
+    h-full
+  "
+/>
+     
+
+
+     <div
+  className="
+    ml-auto
+
+    w-full
+    lg:w-[38%]
+
+    h-full
+
+    bg-white
+
+    overflow-y-auto
+
+    px-8
+    sm:px-12
+    lg:px-24
+
+    py-10
+
+    shadow-2xl
+    animate-[slideIn_.6s_cubic-bezier(.22,1,.36,1)]
+  "
+>
+  {/* Close Button */}
+  <div className="flex justify-end">
+    <button
+      onClick={onClose}
       className="
-        fixed
-        inset-0
-        z-40
-       bg-white
-backdrop-blur-xl
-        overflow-y-auto
-        px-5
-        py-20
-        animate-fade-in
+        w-12
+        h-12
+        rounded-full
+        bg-black
+        text-white
+
+        flex
+        items-center
+        justify-center
+
+        transition-transform
+        duration-500
+
+        hover:rotate-90
       "
     >
-      <div className="mx-auto w-full max-w-7xl">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+        <path
+          d="M6 6L18 18M18 6L6 18"
+          stroke="white"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    </button>
+  </div>
 
-        {/* ---------------- Mobile Navigation ---------------- */}
+
+
+
+{/* ---------------- Mobile Navigation ---------------- */}
        <div
   
   className="
@@ -136,138 +212,102 @@ backdrop-blur-xl
         {/* Divider - Mobile Only */}
         <div className="md:hidden w-full h-px bg-black/10 mb-8" />
 
-        {/* Heading */}
-        <p
+  
+  {/* Heading */}
+  <div className="mt-8">
+    <p
+      className="
+        font-mono
+        uppercase
+        tracking-[0.45em]
+        text-[11px]
+        text-black/45
+        mb-6
+      "
+    >
+      Collections
+    </p>
+
+    {/* Menu Items */}
+    <div className="flex flex-col">
+      {items.map((item) => (
+        <button
+          key={item.label}
+          onClick={() => goToSection(item.href.replace("/#", ""))}
           className="
-            mt-10
-            md:mt-24
-            mb-10
-            text-center
-            uppercase
-           text-[12px]
-md:text-[13px]
-tracking-[0.55em]
-text-black/55
+            group
+            flex
+            items-center
+            justify-between
+
+            w-full
+
+            py-5
+
+            border-b
+            border-black/15
+
+            cursor-pointer
+
+            transition-all
+            duration-500
+
+            hover:border-black
           "
         >
-          Collections
-        </p>
+          <span
+            className="
+  font-display
+ text-[1.75rem]
+sm:text-[2rem]
+lg:text-[2.35rem]
 
-        {/* Cards */}
-        <div
-          className="
-            grid
-            grid-cols-1
-            md:grid-cols-2
-            xl:grid-cols-3
-           gap-6
-md:gap-12
-          "
-        >
-          {items.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={onClose}
-              className="
-                group
-                relative
-                overflow-hidden
-                rounded-none
+  font-medium
+  tracking-[-0.03em]
 
-border
-border-black
+  text-black
 
-bg-black
+  transition-all
+  duration-500
 
-px-8
-py-5
-
-sm:px-10
-sm:py-5
-
-md:px-10
-md:py-5
-
-transition-all
-duration-500
-
-hover:bg-white
-hover:text-black
-              "
-            >
-             <div
-  className="
-    relative
-    z-10
-
-    flex
-    items-center
-    justify-between
-  "
->
-
-        <span
-  className="
-    font-mono
-    uppercase
-
-    text-[15px]
-    sm:text-[16px]
-
-    tracking-[0.45em]
-
-    text-white
-
-    transition-colors
-    duration-500
-
-    group-hover:text-black
-  "
->
-  {item.label}
-</span>
-
-               <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="22"
-    height="22"
-    viewBox="0 0 24 24"
-  className="
-w-6
-h-6
-text-white
-
-transition-all
-duration-500
-
-group-hover:text-black
-group-hover:translate-x-1
+  group-hover:translate-x-3
 "
-    fill="none"
->
-    <path
-        d="M5 12H19"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-    />
-    <path
-        d="M13 6L19 12L13 18"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-    />
-</svg>
-              </div>
+          >
+            {item.label}
+          </span>
 
-              {/* Gold Underline */}
-             
-            </a>
-          ))}
-        </div>
-      </div>
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            className="
+              
+  opacity-100
+  translate-x-0
+
+  transition-all
+  duration-500
+
+  group-hover:translate-x-2
+"
+          >
+            <path
+              d="M5 12H19"
+              stroke="black"
+              strokeWidth="1.5"
+            />
+            <path
+              d="M13 6L19 12L13 18"
+              stroke="black"
+              strokeWidth="1.5"
+            />
+          </svg>
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
     </div>
   );
 }

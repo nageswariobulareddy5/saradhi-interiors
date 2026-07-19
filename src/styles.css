@@ -349,3 +349,20 @@ section:not(:last-child){
 border-bottom:1px solid rgba(255,255,255,.05);
 
 }
+
+
+@keyframes slideIn {
+
+from{
+
+transform:translateX(100%);
+
+}
+
+to{
+
+transform:translateX(0);
+
+}
+
+}
