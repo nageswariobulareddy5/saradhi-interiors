@@ -144,8 +144,8 @@ backdrop-blur-xl
             mb-10
             text-center
             uppercase
-           text-[10px]
-md:text-[11px]
+           text-[12px]
+md:text-[13px]
 tracking-[0.55em]
 text-black/55
           "
@@ -160,8 +160,8 @@ text-black/55
             grid-cols-1
             md:grid-cols-2
             xl:grid-cols-3
-            gap-4
-            md:gap-6
+           gap-6
+md:gap-12
           "
         >
           {items.map((item) => (
@@ -173,44 +173,51 @@ text-black/55
                 group
                 relative
                 overflow-hidden
-                rounded-xl
-                sm:rounded-2xl
-                border
-              border-black/10
-                bg-[#fafafa] 
-                backdrop-blur-xl
+                rounded-none
 
-                px-5
-                py-4
+border
+border-black
 
-                sm:px-6
-                sm:py-5
+bg-black
 
-                md:px-8
-                md:py-7
+px-8
+py-5
 
-                transition-all
-                duration-700
+sm:px-10
+sm:py-5
 
-                hover:border-black
+md:px-10
+md:py-5
+
+transition-all
+duration-500
+
 hover:bg-white
-hover:-translate-y-2
-hover:shadow-xl
+hover:text-black
               "
             >
-             <div className="relative z-10 flex items-center justify-between">
-
-                <span
+             <div
   className="
-    font-display
-    font-medium
-    tracking-[-0.03em]
+    relative
+    z-10
 
-    text-[1.45rem]
-    sm:text-[1.7rem]
-    md:text-3xl
+    flex
+    items-center
+    justify-between
+  "
+>
 
-    text-black
+        <span
+  className="
+    font-mono
+    uppercase
+
+    text-[15px]
+    sm:text-[16px]
+
+    tracking-[0.45em]
+
+    text-white
 
     transition-colors
     duration-500
@@ -226,7 +233,17 @@ hover:shadow-xl
     width="22"
     height="22"
     viewBox="0 0 24 24"
-    className="w-5 h-5 text-black flex-shrink-0"
+  className="
+w-6
+h-6
+text-white
+
+transition-all
+duration-500
+
+group-hover:text-black
+group-hover:translate-x-1
+"
     fill="none"
 >
     <path
@@ -246,22 +263,7 @@ hover:shadow-xl
               </div>
 
               {/* Gold Underline */}
-              <span
-  className="
-    absolute
-    left-0
-    bottom-0
-    h-[2px]
-    w-full
-    bg-black
-    origin-left
-    scale-x-0
-    transition-transform
-    duration-700
-    group-hover:scale-x-100
-    z-0
-  "
-/>
+             
             </a>
           ))}
         </div>

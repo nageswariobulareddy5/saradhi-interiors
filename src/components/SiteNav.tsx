@@ -177,40 +177,44 @@ export default function SiteNav({
             "
           >
             <span
-              className={`
-                h-px
-                transition-all
-                duration-300
-                ${
-                  isLight
-                    ? "bg-black"
-                    : "bg-black"
-                }
-                ${
-                  menuOpen
-                    ? "w-6 translate-y-[3px] rotate-45"
-                    : "w-7"
-                }
-              `}
-            />
+  className={`
+    h-px
+    transition-all
+    duration-300
+    ${
+      menuOpen
+        ? "bg-black"
+        : isLight
+        ? "bg-black"
+        : "bg-white"
+    }
+    ${
+      menuOpen
+        ? "w-6 translate-y-[3px] rotate-45"
+        : "w-7"
+    }
+  `}
+/>
 
-            <span
-              className={`
-                h-px
-                transition-all
-                duration-300
-                ${
-                  isLight
-                    ? "bg-black"
-                    : "bg-black"
-                }
-                ${
-                  menuOpen
-                    ? "w-6 -translate-y-[3px] -rotate-45"
-                    : "w-4 group-hover:w-7"
-                }
-              `}
-            />
+           <span
+  className={`
+    h-px
+    transition-all
+    duration-300
+    ${
+      menuOpen
+        ? "bg-black"
+        : isLight
+        ? "bg-black"
+        : "bg-white"
+    }
+    ${
+      menuOpen
+        ? "w-6 -translate-y-[3px] -rotate-45"
+        : "w-4 group-hover:w-7"
+    }
+  `}
+/>
           </button>
 
         </div>
